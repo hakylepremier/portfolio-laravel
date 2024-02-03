@@ -23,8 +23,10 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white">
-        <header class="flex flex-col h-screen">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ">
+        <header
+            class="flex flex-col h-screen bg-[url('{{ Vite::asset('resources/images/bgrnd.jpg') }}')] bg-cover dark:bg-gray-800"
+            style="background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');background-blend-mode: multiply">
             <nav
                 class="flex flex-row items-center justify-between p-4 bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex items-center shrink-0">
@@ -73,7 +75,7 @@
         <!-- Page Content -->
         <main>
             <div class="bg-gray-800">
-                <section class="max-w-4xl px-4 py-24 mx-auto">
+                <section class="max-w-6xl px-4 py-24 mx-auto">
                     <div class="flex flex-col items-center justify-center pb-20">
                         <h2
                             class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
@@ -89,7 +91,7 @@
                     <div class="grid grid-cols-2 gap-4 ">
                         <article class="">
                             <h4 class="pb-8 text-xl font-bold dark:text-white ">Get to know me!</h4>
-                            <p class="pb-8 md:max-w-80 dark:text-gray-300">
+                            <p class="pb-8 md:max-w-md  dark:text-gray-300">
                                 I'm a Frontend Web Developer building the Front-end of Websites and Web Applications
                                 that
                                 leads
@@ -130,14 +132,14 @@
                     </div>
                 </section>
             </div>
-            <section class="max-w-4xl px-4 py-24 mx-auto">
+            <section class="max-w-6xl px-4 py-24 mx-auto">
                 <h2
                     class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                     Projects</h2>
                 <div class="flex flex-col items-center justify-center gap-20">
                     <article>
-                        <div class="object-contain p-8 bg-gray-800 rounded-3xl "><img
-                                src="{{ asset('build/assets/images/news.jpeg') }}" class="w-full " alt="">
+                        <div class="object-contain p-8 bg-gray-800 rounded-3xl ">
+                            <img src="{{ Vite::asset('resources/images/news.jpeg') }}" class="w-full " alt="">
                         </div>
                         <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
                         <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to
@@ -154,7 +156,7 @@
                     </article>
                     <article>
                         <div class="object-contain p-8 bg-gray-800 rounded-3xl "><img
-                                src="{{ asset('build/assets/images/room.jpeg') }}" class="w-full " alt="">
+                                src="{{ Vite::asset('resources/images/room.jpeg') }}" class="w-full " alt="">
                         </div>
                         <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
                         <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to
@@ -188,7 +190,35 @@
         </main>
     </div>
     <x-toast />
-    <footer class="py-12 bg-gray-950"></footer>
+    <footer class="py-12 bg-gray-950">
+        <div class="max-w-4xl m-auto flex pb-6 border-b border-gray-600">
+            <article class="flex-1">
+                <h2 class="text-lg font-bold uppercase text-white pb-2">Humphrey Yeboah</h2>
+                <p>A full stack and mobile developer ready to help to bring your business online.</p>
+            </article>
+            <article>
+                <h2 class="text-lg font-bold uppercase text-white pb-2">Socials</h2>
+                <div>
+                    <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
+                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-linkedin"></i></a>
+                    <a href="https://www.twitter.com/hakylepremier"
+                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-x-twitter"></i></a>
+                    <a href="https://github.com/hakylepremier" class="p-2 rounded hover:bg-gray-800 transition-colors"
+                        target="_blank" rel="noopener noreferrer"><i class="fa-brands text-lg fa-github"></i></a>
+                    <a href="https://facebook.com/humphrey.yeboah.5"
+                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-facebook"></i></a>
+                </div>
+            </article>
+        </div>
+        <p class="text-center px-2 pt-6">
+            &copy; Copyright {{ Carbon\Carbon::now()->year }}, Made by <a href="http://humphreyyeboah.com"
+                target="_blank" rel="noopener noreferrer" class="text-white font-bold">Humphrey Yeboah</a>
+        </p>
+        {{-- Photo by Felix Mittermeier: https://www.pexels.com/photo/blue-universe-956981/ --}}
+    </footer>
 
     @stack('modals')
 
