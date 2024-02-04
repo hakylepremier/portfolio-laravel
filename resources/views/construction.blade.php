@@ -84,7 +84,8 @@
             margin: 2px;
             background-color: var(--color-primary);
             color: var(--color-secondary);
-            transition: color 0.5s, font-weight 0.2s;
+            transition: color 0.3s ease-in, font-weight 0.2s ease-in;
+            
         }
 
         .fa-brands,

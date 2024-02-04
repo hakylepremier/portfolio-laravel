@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if (env('APP_DEBUG')) {
-        return view('home');
-    } else {
+    if (env('MAINTENANCE_MODE_ENABLED')) {
         return view('construction');
+    } else {
+        return view('home');
     }
 });
 
