@@ -30,9 +30,9 @@
             <nav
                 class="flex flex-row items-center justify-between p-4 bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block w-auto h-9" />
-                    </a>
+                    {{-- <a href="{{ route('dashboard') }}"> --}}
+                    <x-application-mark class="block w-auto h-9" />
+                    {{-- </a> --}}
                 </div>
                 <ul class="flex gap-2 text-white">
                     <li>Home</li>
@@ -42,7 +42,7 @@
                 </ul>
             </nav>
             <section class="flex items-center justify-center flex-1">
-                <div class="w-full relative">
+                <div class="relative w-full">
                     <div class="flex flex-col items-center justify-center max-w-3xl gap-8 pb-12 mx-auto ">
                         <h1 class="text-5xl font-bold text-center uppercase">Hello, I'm Humphrey Yeboah</h1>
                         <h2 class="px-8 text-center">I'm a web and mobile app developer. I'm in the process of creating
@@ -54,19 +54,19 @@
                             through the links below.</h2>
                         <a class="mx-auto text-center btn btn-primary">Let's talk</a>
                     </div>
-                    <article class="bg-gray-800 gap-1 p-1 absolute left-0 top-0 flex flex-col rounded">
+                    <article class="absolute top-0 left-0 flex flex-col gap-1 p-1 bg-gray-800 rounded">
                         <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
-                            class="p-3 rounded hover:bg-gray-600 transition-colors" target="_blank"
-                            rel="noopener noreferrer"><i class="fa-brands text-lg fa-linkedin"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-linkedin"></i></a>
                         <a href="https://www.twitter.com/hakylepremier"
-                            class="p-3 rounded hover:bg-gray-600 transition-colors" target="_blank"
-                            rel="noopener noreferrer"><i class="fa-brands text-lg fa-x-twitter"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-x-twitter"></i></a>
                         <a href="https://github.com/hakylepremier"
-                            class="p-3 rounded hover:bg-gray-600 transition-colors" target="_blank"
-                            rel="noopener noreferrer"><i class="fa-brands text-lg fa-github"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-github"></i></a>
                         <a href="https://facebook.com/humphrey.yeboah.5"
-                            class="p-3 rounded hover:bg-gray-600 transition-colors" target="_blank"
-                            rel="noopener noreferrer"><i class="fa-brands text-lg fa-facebook"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-facebook"></i></a>
                     </article>
                 </div>
             </section>
@@ -91,7 +91,7 @@
                     <div class="grid grid-cols-2 gap-4 ">
                         <article class="">
                             <h4 class="pb-8 text-xl font-bold dark:text-white ">Get to know me!</h4>
-                            <p class="pb-8 md:max-w-md  dark:text-gray-300">
+                            <p class="pb-8 md:max-w-md dark:text-gray-300">
                                 I'm a Frontend Web Developer building the Front-end of Websites and Web Applications
                                 that
                                 leads
@@ -191,31 +191,31 @@
     </div>
     <x-toast />
     <footer class="py-12 bg-gray-950">
-        <div class="max-w-4xl m-auto flex pb-6 border-b border-gray-600">
+        <div class="flex max-w-4xl pb-6 m-auto border-b border-gray-600">
             <article class="flex-1">
-                <h2 class="text-lg font-bold uppercase text-white pb-2">Humphrey Yeboah</h2>
+                <h2 class="pb-2 text-lg font-bold text-white uppercase">Humphrey Yeboah</h2>
                 <p>A full stack and mobile developer ready to help to bring your business online.</p>
             </article>
             <article>
-                <h2 class="text-lg font-bold uppercase text-white pb-2">Socials</h2>
+                <h2 class="pb-2 text-lg font-bold text-white uppercase">Socials</h2>
                 <div>
                     <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
-                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
-                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-linkedin"></i></a>
+                        class="p-2 transition-colors rounded hover:bg-gray-800" target="_blank"
+                        rel="noopener noreferrer"><i class="text-lg fa-brands fa-linkedin"></i></a>
                     <a href="https://www.twitter.com/hakylepremier"
-                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
-                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-x-twitter"></i></a>
-                    <a href="https://github.com/hakylepremier" class="p-2 rounded hover:bg-gray-800 transition-colors"
-                        target="_blank" rel="noopener noreferrer"><i class="fa-brands text-lg fa-github"></i></a>
+                        class="p-2 transition-colors rounded hover:bg-gray-800" target="_blank"
+                        rel="noopener noreferrer"><i class="text-lg fa-brands fa-x-twitter"></i></a>
+                    <a href="https://github.com/hakylepremier" class="p-2 transition-colors rounded hover:bg-gray-800"
+                        target="_blank" rel="noopener noreferrer"><i class="text-lg fa-brands fa-github"></i></a>
                     <a href="https://facebook.com/humphrey.yeboah.5"
-                        class="p-2 rounded hover:bg-gray-800 transition-colors" target="_blank"
-                        rel="noopener noreferrer"><i class="fa-brands text-lg fa-facebook"></i></a>
+                        class="p-2 transition-colors rounded hover:bg-gray-800" target="_blank"
+                        rel="noopener noreferrer"><i class="text-lg fa-brands fa-facebook"></i></a>
                 </div>
             </article>
         </div>
-        <p class="text-center px-2 pt-6">
+        <p class="px-2 pt-6 text-center">
             &copy; Copyright {{ Carbon\Carbon::now()->year }}, Made by <a href="http://humphreyyeboah.com"
-                target="_blank" rel="noopener noreferrer" class="text-white font-bold">Humphrey Yeboah</a>
+                target="_blank" rel="noopener noreferrer" class="font-bold text-white">Humphrey Yeboah</a>
         </p>
         {{-- Photo by Felix Mittermeier: https://www.pexels.com/photo/blue-universe-956981/ --}}
     </footer>
