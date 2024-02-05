@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "livewire/volt": "^1.6",
-        "robsontenorio/mary": "^1.18"
+        "robsontenorio/mary": "^1.18",
+        "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.13",
