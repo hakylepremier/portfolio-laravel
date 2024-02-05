@@ -19,7 +19,7 @@ Route::get('/', function () {
     } else {
         return view('home');
     }
-});
+})->name('home');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -47,3 +47,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::view('admin/profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
