@@ -31,4 +31,9 @@ class Project extends Model
         'published' => 'boolean',
         'released' => 'boolean',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }

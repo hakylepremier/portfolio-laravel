@@ -38,7 +38,7 @@ class ProjectResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    ->unique('projects', 'slug')
+                    ->unique('projects', 'slug', ignoreRecord: true)
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('summary')
@@ -54,7 +54,7 @@ class ProjectResource extends Resource
                 Forms\Components\Toggle::make('released')
                     ->default(false)
                     ->required(),
-                // Forms\Components\MarkdownEditor::make('content')
+                Forms\Components\MarkdownEditor::make('content'),
                 //     ->toolbarButtons([
                 //         'attachFiles',
                 //         'blockquote',
@@ -70,8 +70,8 @@ class ProjectResource extends Resource
                 //         'table',
                 //         'undo',
                 //     ]),
-                Forms\Components\Textarea::make('content')
-                    ->columnSpanFull(),
+                // Forms\Components\Textarea::make('content')
+                //     ->columnSpanFull(),
             ]);
     }
 
