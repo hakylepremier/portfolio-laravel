@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('summary');
             $table->text('description')->nullable();
             $table->boolean('published')->default(true);
+            $table->boolean('released')->default(false);
             $table->longText('content')->nullable();
             $table->timestamps();
         });
