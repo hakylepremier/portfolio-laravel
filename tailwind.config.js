@@ -12,7 +12,16 @@ export default {
         "./vendor/robsontenorio/mary/src/View/Components/**/*.php",
     ],
 
+    safelist: [
+        {
+            pattern: /hljs+/,
+        },
+    ],
+
     theme: {
+        hljs: {
+            theme: "night-owl",
+        },
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
@@ -20,5 +29,10 @@ export default {
         },
     },
 
-    plugins: [forms, typography, require("daisyui")],
+    plugins: [
+        forms,
+        typography,
+        require("tailwind-highlightjs"),
+        require("daisyui"),
+    ],
 };
