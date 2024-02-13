@@ -42,6 +42,10 @@ class ProjectResource extends Resource
                     ->unique('projects', 'slug', ignoreRecord: true)
                     ->required()
                     ->maxLength(255),
+                Forms\Components\FileUpload::make('photo')
+                    ->image()
+                    ->imageEditor()
+                    ->multiple(),
                 Forms\Components\Textarea::make('summary')
                     ->required()
                     ->maxLength(65535)
@@ -89,6 +93,7 @@ class ProjectResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
+                Tables\Columns\ImageColumn::make('photo'),
                 Tables\Columns\TextColumn::make('stage.name'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

@@ -16,6 +16,7 @@ class Project extends Model
     protected $fillable = [
         'title',
         'slug',
+        'photo',
         'summary',
         'description',
         'stage_id',
@@ -30,6 +31,7 @@ class Project extends Model
 
     protected $casts = [
         'published' => 'boolean',
+        'photo' => 'array'
     ];
 
     public function stage(): BelongsTo

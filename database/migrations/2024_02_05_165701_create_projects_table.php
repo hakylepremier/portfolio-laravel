@@ -16,6 +16,7 @@ return new class extends Migration
             $table->ulid('id')->primary();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('photo', 2048)->nullable();
             $table->text('summary');
             $table->text('description')->nullable();
             $table->boolean('published')->default(true);
