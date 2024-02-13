@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Stage;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->text('summary');
             $table->text('description')->nullable();
             $table->boolean('published')->default(true);
-            $table->boolean('released')->default(false);
+            $table->foreignIdFor(Stage::class)->constrained()->cascadeOnDelete();
             $table->longText('content')->nullable();
             $table->timestamps();
         });

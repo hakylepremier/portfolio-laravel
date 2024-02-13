@@ -6,7 +6,7 @@ use App\Models\Stage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProjectSeeder extends Seeder
+class StageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,10 +20,8 @@ class ProjectSeeder extends Seeder
         ];
 
         foreach ($stages as $stage) {
-            \App\Models\Project::factory(
-                5
-            )->create([
-                'stage_id' => Stage::firstOrCreate(['name' => $stage])['id']
+            Stage::create([
+                'name' => $stage
             ]);
         }
     }

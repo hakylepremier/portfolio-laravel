@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Project extends Model
 {
@@ -17,20 +18,24 @@ class Project extends Model
         'slug',
         'summary',
         'description',
-        'published',
+        'stage_id',
         'released',
         'content',
     ];
 
     protected $attributes = [
         'published' => true,
-        'released' => false,
+        'stage_id' => 1
     ];
 
     protected $casts = [
         'published' => 'boolean',
-        'released' => 'boolean',
     ];
+
+    public function stage(): BelongsTo
+    {
+        return $this->belongsTo(Stage::class);
+    }
 
     public function getRouteKeyName(): string
     {

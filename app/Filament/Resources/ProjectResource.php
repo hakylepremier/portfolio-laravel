@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
+use App\Models\Stage;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -27,7 +28,7 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                    ->live()
+                    ->live(onBlur: true)
                     ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
                         if (($get('slug') ?? '') !== Str::slug($old)) {
                             return;
@@ -51,10 +52,13 @@ class ProjectResource extends Resource
                 Forms\Components\Toggle::make('published')
                     ->default(true)
                     ->required(),
-                Forms\Components\Toggle::make('released')
-                    ->default(false)
-                    ->required(),
-                Forms\Components\MarkdownEditor::make('content'),
+                Forms\Components\Select::make('stage_id')
+                    ->relationship('stage', 'name')
+                    ->default(1)
+                    ->required()
+                    ->searchable(),
+                Forms\Components\MarkdownEditor::make('content')
+                    ->columnSpanFull(),
                 //     ->toolbarButtons([
                 //         'attachFiles',
                 //         'blockquote',
@@ -70,7 +74,7 @@ class ProjectResource extends Resource
                 //         'table',
                 //         'undo',
                 //     ]),
-                // Forms\Components\Textarea::make('content')
+                // Forms\Components\RichEditor::make('content')
                 //     ->columnSpanFull(),
             ]);
     }
@@ -85,8 +89,7 @@ class ProjectResource extends Resource
                     ->searchable(),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
-                Tables\Columns\IconColumn::make('released')
-                    ->boolean(),
+                Tables\Columns\TextColumn::make('stage.name'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -97,7 +100,10 @@ class ProjectResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('stage')
+                    ->relationship('stage', 'name'),
+                Tables\Filters\TernaryFilter::make('published')
+                    ->label('Published')->placeholder('All')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

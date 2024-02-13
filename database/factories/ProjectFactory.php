@@ -26,7 +26,6 @@ class ProjectFactory extends Factory
             'summary' => fake()->realTextBetween(80, 150),
             'description' => $description ? fake()->realTextBetween() : null,
             'published' => fake()->boolean(),
-            'released' => fake()->boolean(),
             'content' => $content ? fake()->realTextBetween(200, 300) : null,
         ];
     }
