@@ -8,6 +8,14 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ Vite::asset('resources/images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ Vite::asset('resources/images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ Vite::asset('resources/images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ Vite::asset('resources/images/favicon/site.webmanifest') }}">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -31,7 +39,7 @@
                 class="flex flex-row items-center justify-between p-4 bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex items-center shrink-0">
                     {{-- <a href="{{ route('dashboard') }}"> --}}
-                    <x-application-mark class="block w-auto h-9" />
+                    <x-application-mark class="block w-8 h-8" />
                     {{-- </a> --}}
                 </div>
                 <ul class="flex gap-2 text-white">
@@ -150,13 +158,15 @@
                             <a href="https://hakylepremier.github.io/responsive-news-homepage-frontend/"
                                 class="text-center btn btn-primary" target="_blank" rel="noopener noreferrer">Visit
                                 Site</a>
-                            <a href="https://github.com/hakylepremier/responsive-news-homepage-frontend" target="_blank"
-                                rel="noopener noreferrer" class="text-center btn btn-primary">See the code</a>
+                            <a href="https://github.com/hakylepremier/responsive-news-homepage-frontend"
+                                target="_blank" rel="noopener noreferrer" class="text-center btn btn-primary">See the
+                                code</a>
                         </div>
                     </article>
                     <article>
                         <div class="object-contain p-8 bg-gray-800 rounded-3xl "><img
-                                src="{{ Vite::asset('resources/images/room.jpeg') }}" class="w-full " alt="">
+                                src="{{ Vite::asset('resources/images/room.jpeg') }}" class="w-full "
+                                alt="">
                         </div>
                         <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
                         <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to

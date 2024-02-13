@@ -1,6 +1,6 @@
 <nav class="flex justify-between w-full py-8">
     <a href="{{ route('home') }}">
-        <div class="flex-1">Logo</div>
+        <img src="{{ Vite::asset('resources/images/LOGO.svg') }}" alt="My logo" class="h-8 w-8">
     </a>
     <ul class="flex gap-4 shrink-1">
         <li><a href="{{ route('home') }}">Home</a></li>

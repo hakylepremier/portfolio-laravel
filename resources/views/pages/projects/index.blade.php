@@ -14,15 +14,15 @@ name('projects.index');
 @php $projects = Project::latest()->get(); @endphp
 
 <x-guest-layout>
-    <header class="max-w-7xl m-auto">
+    <header class="m-auto max-w-7xl">
         <x-navigation />
-        <section class="py-8 border-gray-700 border-y-2 relative">
+        <section class="relative py-8 border-gray-700 border-y-2">
             <div class="flex justify-between">
                 <article>
                     <h1 class="text-3xl font-bold">
                         The projects I've worked on
                     </h1>
-                    <p class="text-gray-400 max-w-lg pt-4 pb-8">
+                    <p class="max-w-lg pt-4 pb-8 text-gray-400">
                         This is where you'll find all the projects I'm working
                         on. I have split them up into groups to make it easy to
                         navigate.
@@ -37,23 +37,23 @@ name('projects.index');
                         <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank"
                             rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}"
                                 alt="frontend mentor logo"
-                                class="w-8 h-8 rounded-full hover:scale-110 transition-all" /></a>
+                                class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
                     </div>
                 </article>
             </div>
-            <div class="flex justify-between items-center">
-                <div class="bg-red-700 px-4 py-2 rounded-3xl">
+            <div class="flex items-center justify-between">
+                <div class="px-4 py-2 bg-red-700 rounded-3xl">
                     <input type="text"
-                        class="bg-transparent p-0 border-none placeholder:text-gray-200 active:bg-transparent"
+                        class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent"
                         placeholder="Search" />
                 </div>
                 <div class="flex gap-8">
-                    <a href="" class="px-4 py-2 rounded-3xl hover:bg-red-900 transition-colors">All</a>
+                    <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">All</a>
                     <a href=""
-                        class="bg-red-500 px-4 py-2 rounded-3xl hover:bg-red-900 transition-colors">FullStack</a>
-                    <a href="" class="px-4 py-2 rounded-3xl hover:bg-red-900 transition-colors">Frontend</a>
-                    <a href="" class="px-4 py-2 rounded-3xl hover:bg-red-900 transition-colors">Backend</a>
-                    <a href="" class="px-4 py-2 rounded-3xl hover:bg-red-900 transition-colors">Fullstack and
+                        class="px-4 py-2 transition-colors bg-red-500 rounded-3xl hover:bg-red-900">FullStack</a>
+                    <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Frontend</a>
+                    <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Backend</a>
+                    <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Fullstack and
                         Mobile</a>
                 </div>
             </div>
@@ -63,13 +63,13 @@ name('projects.index');
             </p>
         </section>
     </header>
-    <main class="max-w-7xl m-auto py-8">
+    <main class="py-8 m-auto max-w-7xl">
         <section class="grid grid-cols-2 gap-8 pt-8 ">
             @foreach ($projects as $project)
-                <article class="grow relative">
+                <article class="relative grow">
                     <div class="flex justify-between pb-4">
                         <a href="{{ route('projects.show', ['project' => $project]) }}">
-                            <h2 class="card-title items-start max-w-xs">{{ $project->title }}</h2>
+                            <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
                         </a>
                         <div class="flex flex-col items-end gap-2">
                             @if ($project->released)
@@ -78,14 +78,14 @@ name('projects.index');
                                 <p>In development</p>
                             @endif
                             <a href=""
-                                class="px-2 py-1 rounded-badge  bg-red-800 hover:bg-red-600 transition-colors">FullStack</a>
+                                class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">FullStack</a>
                         </div>
                     </div>
                     <a href="{{ route('projects.show', ['project' => $project]) }}">
-                        <figure class="rounded relative">
+                        <figure class="relative rounded">
                             <img src="{{ Vite::asset('resources/images/bubble-mockup.png') }}" alt=""
                                 class="w-full rounded-xl" />
-                            <!-- <div class="bg-gray-600 w-xl h-full">375×667</div> -->
+                            <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
                             @if ($loop->odd)
                                 <div
                                     class="h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">

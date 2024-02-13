@@ -32,6 +32,12 @@
 
     @stack('modals')
 
+    {{-- #DA073B
+    #DAA507
+    #8EC7D2
+    #0D6A87
+    #07475A --}}
+
     @livewireScripts
 </body>
 
