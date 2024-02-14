@@ -31,16 +31,18 @@ $save = function () {
 
 <div class="bg-gray-900 card">
     <x-form wire:submit="save" class="card-body">
-        <x-input label="Name" wire:model="name" placeholder="Enter your name" icon="o-user" clearable />
+        <x-input label="Name" wire:model="name" placeholder="Enter your name" icon="o-user"
+            class="dark:border-accent dark:bg-gray-800" clearable />
 
-        <x-input label="E-mail" wire:model="email" placeholder="Enter your email" icon="o-envelope" clearable />
+        <x-input label="E-mail" wire:model="email" placeholder="Enter your email" icon="o-envelope"
+            class="dark:bg-gray-800 dark:border-accent" clearable />
 
-        <x-textarea label="Message" wire:model="message" placeholder="Enter your message" hint="Max 1000 chars"
-            rows="5" />
+        <x-textarea label="Message" wire:model="message" placeholder="Enter your message"
+            class="dark:bg-gray-800 dark:border-accent" hint="Max 1000 chars" rows="5" />
 
         <x-slot:actions>
             {{-- <x-button label="Cancel" /> --}}
-            <x-button label="Submit" class="btn-primary" type="submit" spinner="save" />
+            <x-button label="Submit" class="text-white btn-primary" type="submit" spinner="save" />
         </x-slot:actions>
     </x-form>
 </div>

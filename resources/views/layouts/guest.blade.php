@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div class="font-sans text-gray-900 dark:text-gray-100 antialiased">
+    <div class="font-sans antialiased text-gray-900 dark:text-gray-100">
         {{ $slot }}
     </div>
 

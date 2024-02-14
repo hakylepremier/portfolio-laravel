@@ -36,7 +36,9 @@
     #DAA507
     #8EC7D2
     #0D6A87
-    #07475A --}}
+    #07475A 
+    #1d232a 
+    WASHED BLACK --}}
 
     @livewireScripts
 </body>

@@ -30,25 +30,26 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased" data-theme="mytheme">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ">
         <header
             class="flex flex-col h-screen bg-[url('{{ Vite::asset('resources/images/bgrnd.jpg') }}')] bg-cover dark:bg-gray-800"
             style="background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');background-blend-mode: multiply">
-            <nav
-                class="flex flex-row items-center justify-between p-4 bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex items-center shrink-0">
-                    {{-- <a href="{{ route('dashboard') }}"> --}}
-                    <x-application-mark class="block w-8 h-8" />
-                    {{-- </a> --}}
-                </div>
-                <ul class="flex gap-2 text-white">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li><a href="{{ route('projects.index') }}">Project</a></li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
+            <div class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+
+                <nav class="flex flex-row items-center justify-between max-w-6xl p-4 m-auto ">
+                    {{-- <x-navigation /> --}}
+                    <a href="{{ route('home') }}">
+                        <img src="{{ Vite::asset('resources/images/LOGO.svg') }}" alt="My logo" class="w-8 h-8">
+                    </a>
+                    <ul class="flex gap-4 shrink-1">
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('projects.index') }}">Projects</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact </a></li>
+                    </ul>
+                </nav>
+            </div>
             <section class="flex items-center justify-center flex-1">
                 <div class="relative w-full">
                     <div class="flex flex-col items-center justify-center max-w-3xl gap-8 pb-12 mx-auto ">
@@ -60,21 +61,22 @@
                             own project needs. The website is still under construction, but you can find me on social
                             media
                             through the links below.</h2>
-                        <a class="mx-auto text-center btn btn-primary">Let's talk</a>
+                        <a class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
                     </div>
                     <article class="absolute top-0 left-0 flex flex-col gap-1 p-1 bg-gray-800 rounded">
                         <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
-                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
-                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-linkedin"></i></a>
+                            class="p-3 text-white transition-colors rounded hover:bg-accent hover:text-gray-800"
+                            target="_blank" rel="noopener noreferrer"><i
+                                class="text-lg text-inherit fa-brands fa-linkedin"></i></a>
                         <a href="https://www.twitter.com/hakylepremier"
-                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
-                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-x-twitter"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-accent hover:text-gray-800" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg text-inherit fa-brands fa-x-twitter"></i></a>
                         <a href="https://github.com/hakylepremier"
-                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
-                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-github"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-accent hover:text-gray-800" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg text-inherit fa-brands fa-github"></i></a>
                         <a href="https://facebook.com/humphrey.yeboah.5"
-                            class="p-3 transition-colors rounded hover:bg-gray-600" target="_blank"
-                            rel="noopener noreferrer"><i class="text-lg fa-brands fa-facebook"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-accent hover:text-gray-800" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg text-inherit fa-brands fa-facebook"></i></a>
                     </article>
                 </div>
             </section>
@@ -118,23 +120,23 @@
                                 I'm open to Job opportunities where I can contribute, learn and grow. If you have a good
                                 opportunity that matches my skills and experience then don't hesitate to contact me
                             </p>
-                            <a class="text-center btn btn-primary">Let's talk</a>
+                            <a class="text-center text-white btn btn-primary">Let's talk</a>
                         </article>
                         <article>
                             <h4 class="pb-8 text-xl font-bold dark:text-white ">Skills</h4>
                             <div>
-                                <div class="mb-2 btn btn-accent ">Lorem.</div>
-                                <div class="mb-2 btn btn-accent ">Atque.</div>
-                                <div class="mb-2 btn btn-accent ">Non!</div>
-                                <div class="mb-2 btn btn-accent ">Vel.</div>
-                                <div class="mb-2 btn btn-accent ">Eius.</div>
-                                <div class="mb-2 btn btn-accent ">Ea.</div>
-                                <div class="mb-2 btn btn-accent ">Voluptate?</div>
-                                <div class="mb-2 btn btn-accent ">Saepe.</div>
-                                <div class="mb-2 btn btn-accent ">Voluptatibus?</div>
-                                <div class="mb-2 btn btn-accent ">Impedit!</div>
-                                <div class="mb-2 btn btn-accent ">Dolorum!</div>
-                                <div class="mb-2 btn btn-accent ">Quaerat!</div>
+                                <div class="mb-2 btn btn-neutral ">Lorem.</div>
+                                <div class="mb-2 btn btn-neutral ">Atque.</div>
+                                <div class="mb-2 btn btn-neutral ">Non!</div>
+                                <div class="mb-2 btn btn-neutral ">Vel.</div>
+                                <div class="mb-2 btn btn-neutral ">Eius.</div>
+                                <div class="mb-2 btn btn-neutral ">Ea.</div>
+                                <div class="mb-2 btn btn-neutral ">Voluptate?</div>
+                                <div class="mb-2 btn btn-neutral ">Saepe.</div>
+                                <div class="mb-2 btn btn-neutral ">Voluptatibus?</div>
+                                <div class="mb-2 btn btn-neutral ">Impedit!</div>
+                                <div class="mb-2 btn btn-neutral ">Dolorum!</div>
+                                <div class="mb-2 btn btn-neutral ">Quaerat!</div>
                             </div>
                         </article>
                     </div>
@@ -156,10 +158,12 @@
                             homepage.</p>
                         <div class="flex items-center justify-center gap-4 pt-6">
                             <a href="https://hakylepremier.github.io/responsive-news-homepage-frontend/"
-                                class="text-center btn btn-primary" target="_blank" rel="noopener noreferrer">Visit
+                                class="text-center text-white btn btn-primary" target="_blank"
+                                rel="noopener noreferrer">Visit
                                 Site</a>
                             <a href="https://github.com/hakylepremier/responsive-news-homepage-frontend"
-                                target="_blank" rel="noopener noreferrer" class="text-center btn btn-primary">See the
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-center text-white btn btn-primary">See the
                                 code</a>
                         </div>
                     </article>
@@ -174,11 +178,13 @@
                             simple news website
                             homepage.</p>
                         <div class="flex items-center justify-center gap-4 pt-6">
-                            <a href="https://room-homepage-haky.netlify.app/" class="text-center btn btn-primary"
-                                target="_blank" rel="noopener noreferrer">Visit
+                            <a href="https://room-homepage-haky.netlify.app/"
+                                class="text-center text-white btn btn-primary" target="_blank"
+                                rel="noopener noreferrer">Visit
                                 Site</a>
                             <a href="https://github.com/hakylepremier/room-homepage-frontend" target="_blank"
-                                rel="noopener noreferrer" class="text-center btn btn-primary">See the code</a>
+                                rel="noopener noreferrer" class="text-center text-white btn btn-primary">See the
+                                code</a>
                         </div>
                     </article>
                 </div>
