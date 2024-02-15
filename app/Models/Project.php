@@ -12,7 +12,7 @@ class Project extends Model
     use HasFactory;
     use HasUlids;
 
-    // published makes it visible on the website, released tells us if it has been released or not
+    // published makes it visible on the website
     protected $fillable = [
         'title',
         'slug',
@@ -20,7 +20,7 @@ class Project extends Model
         'summary',
         'description',
         'stage_id',
-        'released',
+        'published',
         'content',
     ];
 

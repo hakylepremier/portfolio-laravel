@@ -26,7 +26,7 @@ name('projects.show');
                     @endif
                 </p>
                 <div>
-                    <h3 class="text-xl font-bold">Type</h3>
+                    <h3 class="text-xl font-bold">Category</h3>
                     <p class="text-gray-400">Social Media</p>
                 </div>
                 <div>
