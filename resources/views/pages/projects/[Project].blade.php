@@ -27,7 +27,7 @@ name('projects.show');
                 </p>
                 <div>
                     <h3 class="text-xl font-bold">Category</h3>
-                    <p class="text-gray-400">Social Media</p>
+                    <p class="text-gray-400">{{ $project->category->title }}</p>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold">Links</h3>

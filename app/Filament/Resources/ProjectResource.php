@@ -61,6 +61,32 @@ class ProjectResource extends Resource
                     ->default(1)
                     ->required()
                     ->searchable(),
+                Forms\Components\Select::make('category_id')
+                    ->relationship('category', 'title')
+                    ->default(1)
+                    ->searchable()
+                    ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('title')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
+                                if (($get('slug') ?? '') !== Str::slug($old)) {
+                                    return;
+                                }
+
+                                $set('slug', Str::slug($state));
+                            })
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->unique('projects', 'slug', ignoreRecord: true)
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('description')
+                            ->maxLength(65535)
+                            ->columnSpanFull(),
+                    ])
+                    ->required(),
                 Forms\Components\MarkdownEditor::make('content')
                     ->columnSpanFull(),
                 //     ->toolbarButtons([

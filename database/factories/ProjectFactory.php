@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
+use App\Models\Stage;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,6 +27,9 @@ class ProjectFactory extends Factory
             'slug' => Str::slug($title),
             'summary' => fake()->realTextBetween(80, 150),
             'description' => $description ? fake()->realTextBetween() : null,
+            'stage_id' =>
+            $this->faker->randomElement(Stage::all())['id'],
+            'category_id' => $this->faker->randomElement(Category::all())['id'],
             'published' => fake()->boolean(),
             'content' => $content ? fake()->realTextBetween(200, 300) : null,
         ];

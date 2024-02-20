@@ -20,6 +20,7 @@ class Project extends Model
         'summary',
         'description',
         'stage_id',
+        'category_id',
         'published',
         'content',
     ];
@@ -37,6 +38,11 @@ class Project extends Model
     public function stage(): BelongsTo
     {
         return $this->belongsTo(Stage::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 
     public function getRouteKeyName(): string

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Stage;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->boolean('published')->default(true);
             $table->foreignIdFor(Stage::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->longText('content')->nullable();
             $table->timestamps();
         });
