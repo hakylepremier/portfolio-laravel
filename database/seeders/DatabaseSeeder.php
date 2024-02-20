@@ -15,13 +15,24 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        Role::create(['name' => 'Super Admin']);
+        if (env('INITIAL_SETUP')) {
+            Role::create(['name' => 'Super Admin']);
 
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Admin User',
-            'email' => env('ADMIN_USER_EMAIL'),
+            $user = \App\Models\User::factory()->create([
+                'name' => 'Admin User',
+                'email' => env('ADMIN_USER_EMAIL'),
+            ]);
+
+            $user->assignRole('Super Admin');
+        }
+
+        $this->call([
+            StageSeeder::class,
+            CategorySeeder::class,
         ]);
 
-        $user->assignRole('Super Admin');
+        \App\Models\Project::factory(15)->create();
+        // or
+        // $this->call(ProjectSeeder::class);
     }
 }
