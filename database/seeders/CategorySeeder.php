@@ -21,11 +21,13 @@ class CategorySeeder extends Seeder
             "Health and Fitness",
             "Entertainment",
             "Communication",
+            "Data Analysis",
+            "Social Media",
             "Travel and Transportation",
         ];
 
         foreach ($categories as $category) {
-            \App\Models\Category::factory()->create([
+            $myCategory = \App\Models\Category::firstOrCreate([
                 'title' => $category,
                 'slug' => Str::slug($category),
             ]);

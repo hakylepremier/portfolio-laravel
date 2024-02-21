@@ -20,7 +20,7 @@ class StageSeeder extends Seeder
         ];
 
         foreach ($stages as $stage) {
-            Stage::create([
+            $myStage = Stage::firstOrCreate([
                 'name' => $stage
             ]);
         }

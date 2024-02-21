@@ -24,6 +24,7 @@ class TypeSeeder extends Seeder
             "Mobile",
             "Mobile Backend",
             "Mobile Backend(Api)",
+            "Data Science",
             "Cli Tool",
             "Desktop Windows",
             "Desktop Linux",
