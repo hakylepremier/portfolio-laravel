@@ -85,13 +85,9 @@ mount(function () {
                             <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
                         </a>
                         <div class="flex flex-col items-end gap-2">
-                            @if ($project->released)
-                                <p>Released</p>
-                            @else
-                                <p>In development</p>
-                            @endif
+                            <p>{{ $project->stage->name }}</p>
                             <a href=""
-                                class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">FullStack</a>
+                                class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $project->type->title }}</a>
                         </div>
                     </div>
                     <a href="{{ route('projects.show', ['project' => $project]) }}">
