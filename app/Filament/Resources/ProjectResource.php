@@ -141,12 +141,14 @@ class ProjectResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make(
+                    'type.title'
+                ),
+                Tables\Columns\TextColumn::make('category.title'),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
-                Tables\Columns\ImageColumn::make('photo'),
                 Tables\Columns\TextColumn::make('stage.name'),
+                Tables\Columns\ImageColumn::make('photo'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -159,6 +161,10 @@ class ProjectResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('stage')
                     ->relationship('stage', 'name'),
+                Tables\Filters\SelectFilter::make('category')
+                    ->relationship('category', 'title'),
+                Tables\Filters\SelectFilter::make('type')
+                    ->relationship('type', 'title'),
                 Tables\Filters\TernaryFilter::make('published')
                     ->label('Published')->placeholder('All')
             ])
