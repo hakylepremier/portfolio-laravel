@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Stage;
+use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -30,6 +31,7 @@ class ProjectFactory extends Factory
             'stage_id' =>
             $this->faker->randomElement(Stage::all())['id'],
             'category_id' => $this->faker->randomElement(Category::all())['id'],
+            'type_id' => $this->faker->randomElement(Type::all())['id'],
             'published' => fake()->boolean(),
             'content' => $content ? fake()->realTextBetween(200, 300) : null,
         ];

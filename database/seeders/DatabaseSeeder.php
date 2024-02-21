@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StageSeeder::class,
             CategorySeeder::class,
+            TypeSeeder::class,
         ]);
 
         \App\Models\Project::factory(15)->create();

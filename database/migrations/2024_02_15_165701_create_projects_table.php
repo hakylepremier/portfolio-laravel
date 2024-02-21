@@ -2,6 +2,7 @@
 
 use App\Models\Category;
 use App\Models\Stage;
+use App\Models\Type;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->boolean('published')->default(true);
             $table->foreignIdFor(Stage::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Type::class)->constrained()->cascadeOnDelete();
             $table->longText('content')->nullable();
             $table->timestamps();
         });
