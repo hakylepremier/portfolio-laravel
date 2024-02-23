@@ -35,5 +35,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Project::factory(15)->create();
         // or
         // $this->call(ProjectSeeder::class);
+        $this->call(ProjectTypeSeeder::class);
     }
 }

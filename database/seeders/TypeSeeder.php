@@ -16,19 +16,13 @@ class TypeSeeder extends Seeder
         $types = [
             "FrontEnd",
             "BackEnd",
-            "Api",
             "FullStack",
-            "FullStack Api",
-            "FullStack Api Mobile",
-            "FullStack Api Mobile Desktop",
+            "Api",
             "Mobile",
-            "Mobile Backend",
-            "Mobile Backend(Api)",
             "Data Science",
             "Cli Tool",
-            "Desktop Windows",
-            "Desktop Linux",
-            "Desktop Cross platform"
+            "Desktop",
+            "Cross platform",
         ];
 
         foreach ($types as $type) {

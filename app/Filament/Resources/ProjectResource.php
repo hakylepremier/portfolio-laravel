@@ -87,9 +87,10 @@ class ProjectResource extends Resource
                             ->columnSpanFull(),
                     ])
                     ->required(),
-                Forms\Components\Select::make('type_id')
-                    ->relationship('type', 'title')
-                    ->default(1)
+                Forms\Components\Select::make('types')
+                    ->multiple()
+                    ->relationship('types', 'title')
+                    // ->default(1)
                     ->searchable()
                     ->preload()
                     ->createOptionForm([
@@ -111,8 +112,7 @@ class ProjectResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->maxLength(65535)
                             ->columnSpanFull(),
-                    ])
-                    ->required(),
+                    ]),
                 Forms\Components\MarkdownEditor::make('content')
                     ->columnSpanFull(),
                 //     ->toolbarButtons([
@@ -141,9 +141,9 @@ class ProjectResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make(
-                    'type.title'
-                ),
+                // Tables\Columns\TextColumn::make(
+                //     'type.title'
+                // ),
                 Tables\Columns\TextColumn::make('category.title'),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
@@ -164,7 +164,7 @@ class ProjectResource extends Resource
                 Tables\Filters\SelectFilter::make('category')
                     ->relationship('category', 'title'),
                 Tables\Filters\SelectFilter::make('type')
-                    ->relationship('type', 'title'),
+                    ->relationship('types', 'title'),
                 Tables\Filters\TernaryFilter::make('published')
                     ->label('Published')->placeholder('All')
             ])

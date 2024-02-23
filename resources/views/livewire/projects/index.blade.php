@@ -86,8 +86,15 @@ mount(function () {
                         </a>
                         <div class="flex flex-col items-end gap-2">
                             <p>{{ $project->stage->name }}</p>
-                            <a href=""
-                                class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $project->type->title }}</a>
+                            <div>
+
+                                @forelse ($project->types as $type)
+                                    <a href=""
+                                        class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $type->title }}</a>
+                                @empty
+                                    <p class="text-sm font-bold text-gray-600">No type added</p>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                     <a href="{{ route('projects.show', ['project' => $project]) }}">

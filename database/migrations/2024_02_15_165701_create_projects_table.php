@@ -24,7 +24,6 @@ return new class extends Migration
             $table->boolean('published')->default(true);
             $table->foreignIdFor(Stage::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Type::class)->constrained()->cascadeOnDelete();
             $table->longText('content')->nullable();
             $table->timestamps();
         });

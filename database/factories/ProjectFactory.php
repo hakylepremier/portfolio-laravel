@@ -31,7 +31,6 @@ class ProjectFactory extends Factory
             'stage_id' =>
             $this->faker->randomElement(Stage::all())['id'],
             'category_id' => $this->faker->randomElement(Category::all())['id'],
-            'type_id' => $this->faker->randomElement(Type::all())['id'],
             'published' => fake()->boolean(),
             'content' => $content ? fake()->realTextBetween(200, 300) : null,
         ];
