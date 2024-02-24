@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LinkType>
+ */
+class LinkTypeFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $title = $this->faker->sentence(3);
+        return [
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'description' => fake()->boolean() ? fake()->realTextBetween() : null,
+        ];
+    }
+}

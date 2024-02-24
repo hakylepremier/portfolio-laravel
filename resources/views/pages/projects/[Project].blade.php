@@ -32,8 +32,18 @@ name('projects.show');
                 <div>
                     <h3 class="text-xl font-bold">Links</h3>
                     <div class="flex gap-2">
-                        <p class="text-[#6895D2] font-bold underline underline-offset-2">Github</p>
-                        <p class="text-[#6895D2] font-bold underline underline-offset-2">Live Site</p>
+                        @forelse ($project->links as $link)
+                            <a href="{{ $link->url }}" target="_blank" rel="noopener noreferrer"
+                                class="text-[#6895D2] font-bold underline underline-offset-2">
+                                @if ($link->title)
+                                    {{ $link->title }}
+                                @else
+                                    {{ $link->link_type->title }}
+                                @endif
+                            </a>
+                        @empty
+                            <p class="text-gray-400 text-sm font-bold">No links added</p>
+                        @endforelse
                     </div>
                 </div>
                 <div>
