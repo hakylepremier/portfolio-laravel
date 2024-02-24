@@ -113,6 +113,35 @@ class ProjectResource extends Resource
                             ->maxLength(65535)
                             ->columnSpanFull(),
                     ]),
+                Forms\Components\Select::make('stacks')
+                    ->multiple()
+                    ->relationship('stacks', 'title')
+                    // ->default(1)
+                    ->searchable()
+                    ->preload()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('title')
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
+                                if (($get('slug') ?? '') !== Str::slug($old)) {
+                                    return;
+                                }
+
+                                $set('slug', Str::slug($state));
+                            })
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('slug')
+                            ->unique('projects', 'slug', ignoreRecord: true)
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\Select::make('kind_id')
+                            ->relationship('kind', 'title')
+                            ->required(),
+                        Forms\Components\Textarea::make('description')
+                            ->maxLength(65535)
+                            ->columnSpanFull(),
+                    ]),
                 Forms\Components\MarkdownEditor::make('content')
                     ->columnSpanFull(),
                 //     ->toolbarButtons([

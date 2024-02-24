@@ -52,6 +52,11 @@ class Project extends Model
         return $this->belongsToMany(Type::class);
     }
 
+    public function stacks(): BelongsToMany
+    {
+        return $this->belongsToMany(Stack::class);
+    }
+
     public function getRouteKeyName(): string
     {
         return 'slug';

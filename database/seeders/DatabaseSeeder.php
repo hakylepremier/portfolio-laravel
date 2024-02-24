@@ -33,8 +33,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Project::factory(15)->create();
+        $this->call(StackSeeder::class);
         // or
         // $this->call(ProjectSeeder::class);
         $this->call(ProjectTypeSeeder::class);
+        $this->call(ProjectStackSeeder::class);
     }
 }
