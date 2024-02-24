@@ -29,6 +29,7 @@ class StageResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
+                Forms\Components\ColorPicker::make('color'),
             ]);
     }
 
@@ -41,6 +42,7 @@ class StageResource extends Resource
                 Tables\Columns\TextColumn::make('projects_count')
                     ->label("No of Projects")
                     ->counts('projects'),
+                Tables\Columns\ColorColumn::make('color'),
                 Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

@@ -12,7 +12,12 @@ class Stage extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'color'
+    ];
+
+    protected $attributes = [
+        'color' => 'yellow',
     ];
 
     public function projects(): HasMany

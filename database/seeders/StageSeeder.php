@@ -14,14 +14,15 @@ class StageSeeder extends Seeder
     public function run(): void
     {
         $stages = [
-            'In production',
-            'Released',
-            'Archived'
+            'In production' => 'red',
+            'Released' => 'green',
+            'Archived' => 'blue'
         ];
 
-        foreach ($stages as $stage) {
+        foreach ($stages as $stage => $color) {
             $myStage = Stage::firstOrCreate([
-                'name' => $stage
+                'name' => $stage,
+                'color' => $color
             ]);
         }
     }

@@ -19,6 +19,7 @@ class StageFactory extends Factory
         return [
             'name' => $this->faker->word,
             'description' => null,
+            'color' => 'yellow'
         ];
     }
 }
