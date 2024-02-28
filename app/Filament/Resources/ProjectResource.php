@@ -89,6 +89,10 @@ class ProjectResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->maxLength(65535)
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('order')
+                            ->numeric()
+                            ->minValue(1)
+                            ->default(1),
                     ])
                     ->required(),
                 Forms\Components\Select::make('types')
@@ -116,6 +120,10 @@ class ProjectResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->maxLength(65535)
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('order')
+                            ->numeric()
+                            ->minValue(1)
+                            ->default(1),
                     ]),
                 Forms\Components\Select::make('stacks')
                     ->multiple()
@@ -145,6 +153,10 @@ class ProjectResource extends Resource
                         Forms\Components\Textarea::make('description')
                             ->maxLength(65535)
                             ->columnSpanFull(),
+                        Forms\Components\TextInput::make('order')
+                            ->numeric()
+                            ->minValue(1)
+                            ->default(1),
                     ]),
                 Forms\Components\MarkdownEditor::make('content')
                     ->columnSpanFull(),

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->foreignIdFor(Kind::class)->constrained()->cascadeOnDelete();
             $table->text('description')->nullable();
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

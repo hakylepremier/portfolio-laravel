@@ -26,6 +26,10 @@ class LinksRelationManager extends RelationManager
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
             ]);
     }
 
@@ -35,6 +39,7 @@ class LinksRelationManager extends RelationManager
             ->recordTitleAttribute('url')
             ->columns([
                 Tables\Columns\TextColumn::make('link_type.title'),
+                Tables\Columns\TextColumn::make('order')->sortable(),
                 Tables\Columns\TextColumn::make('url'),
                 // ->searchable(),
                 Tables\Columns\TextColumn::make('title'),
@@ -48,6 +53,7 @@ class LinksRelationManager extends RelationManager
                 // ->sortable()
                 // ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('order', 'desc')
             ->filters([
                 //
             ])

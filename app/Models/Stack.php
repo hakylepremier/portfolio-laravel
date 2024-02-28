@@ -15,7 +15,8 @@ class Stack extends Model
         'title',
         'slug',
         'kind_id',
-        'description'
+        'description',
+        'order',
     ];
 
     public function kind(): BelongsTo

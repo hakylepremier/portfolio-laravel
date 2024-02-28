@@ -17,6 +17,7 @@ class Link extends Model
         'url',
         'link_type_id',
         'project_id',
+        'order',
     ];
 
     public function project(): BelongsTo

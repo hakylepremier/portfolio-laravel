@@ -38,12 +38,16 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    ->unique('projects', 'slug', ignoreRecord: true)
+                    ->unique('categories', 'slug', ignoreRecord: true)
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
             ]);
     }
 
@@ -59,6 +63,9 @@ class CategoryResource extends Resource
                     ->counts('projects'),
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -67,7 +74,7 @@ class CategoryResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
+            ])->defaultSort('order', 'desc')
             ->filters([
                 //
             ])

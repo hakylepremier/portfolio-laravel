@@ -13,7 +13,8 @@ class Kind extends Model
     protected $fillable = [
         'title',
         'slug',
-        'description'
+        'description',
+        'order',
     ];
 
     public function stacks(): HasMany

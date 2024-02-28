@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(Project::class)->constrained()->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->string('url');
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

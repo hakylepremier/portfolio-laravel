@@ -30,6 +30,10 @@ class StageResource extends Resource
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\ColorPicker::make('color'),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
             ]);
     }
 
@@ -44,6 +48,8 @@ class StageResource extends Resource
                     ->counts('projects'),
                 Tables\Columns\ColorColumn::make('color'),
                 Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('order')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

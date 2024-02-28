@@ -34,6 +34,10 @@ class LinkResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
             ]);
     }
 
@@ -41,9 +45,6 @@ class LinkResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->label('ID')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('link_type.title')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('project.title')
@@ -52,6 +53,8 @@ class LinkResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

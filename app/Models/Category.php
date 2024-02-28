@@ -13,7 +13,8 @@ class Category extends Model
     protected $fillable = [
         'title',
         'slug',
-        'description'
+        'description',
+        'order',
     ];
 
     public function projects(): HasMany

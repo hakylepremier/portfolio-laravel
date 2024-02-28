@@ -38,12 +38,16 @@ class KindResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
-                    ->unique('projects', 'slug', ignoreRecord: true)
+                    ->unique('kinds', 'slug', ignoreRecord: true)
                     ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535)
                     ->columnSpanFull(),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
             ]);
     }
 
@@ -53,6 +57,8 @@ class KindResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('order')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('stacks_count')
                     ->label("No of Stacks")
                     ->counts('stacks'),
@@ -67,6 +73,7 @@ class KindResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('order', 'desc')
             ->filters([
                 //
             ])

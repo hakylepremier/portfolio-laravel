@@ -13,7 +13,8 @@ class Type extends Model
     protected $fillable = [
         'title',
         'slug',
-        'description'
+        'description',
+        'order',
     ];
 
     public function projects(): BelongsToMany
