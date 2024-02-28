@@ -24,11 +24,6 @@ class Link extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function variety(): BelongsTo
-    {
-        return $this->belongsTo(Variety::class);
-    }
-
     public function link_type(): BelongsTo
     {
         return $this->belongsTo(LinkType::class);

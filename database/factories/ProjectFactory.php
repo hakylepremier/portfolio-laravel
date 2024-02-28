@@ -33,6 +33,7 @@ class ProjectFactory extends Factory
             'category_id' => $this->faker->randomElement(Category::all())['id'],
             'published' => fake()->boolean(),
             'content' => $content ? fake()->realTextBetween(200, 300) : null,
+            'order' => fake()->numberBetween(1, 5),
         ];
     }
 }

@@ -1,6 +1,10 @@
 <?php
 
 use App\Models\Project;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+
+// use Illuminate\Database\Query\Builder;
+
 use function Livewire\Volt\{state, computed, mount, on};
 
 // $getProjects = fn() => ($this->projects = Project::latest()->get());
@@ -11,17 +15,21 @@ state(['search' => ''])->url(as: 's', history: true);
 
 // whenever the search value changes this runs and changes the shown projects based on the value
 $projects = computed(function () {
-    return Project::where('title', 'like', '%' . $this->search . '%')
-        ->orWhere('summary', 'like', '%' . $this->search . '%')
-        ->orWhere('description', 'like', '%' . $this->search . '%')
-        ->latest()
+    return Project::where('published', true)
+        ->where(function (Builder $query) {
+            $query
+                ->where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('summary', 'like', '%' . $this->search . '%')
+                ->orWhere('description', 'like', '%' . $this->search . '%');
+        })
+        ->orderBy('order', 'desc')
         ->get();
 });
 
 // on mount all the projects will be shown unless the search state already has a value, eg: ?s=test.
 // this allows for urls to filer projects based on what has been passed to the 's' param
 mount(function () {
-    $this->projects = $this->search == '' ? Project::latest()->get() : $this->projects;
+    $this->projects = $this->search == '' ? Project::where('published', true)->orderBy('order', 'desc')->get() : $this->projects;
 });
 
 ?>
@@ -43,35 +51,27 @@ mount(function () {
                 </article>
                 <article class="flex items-start gap-4">
                     <div class="tooltip" data-tip="Github Profile">
-                        <a href="https://github.com/hakylepremier" target="_blank" rel="noopener noreferrer"><i
-                                class="text-[32px] hover:text-[36px] fa-brands fa-github transition-all"></i></a>
+                        <a href="https://github.com/hakylepremier" target="_blank" rel="noopener noreferrer"><i class="text-[32px] hover:text-[36px] fa-brands fa-github transition-all"></i></a>
                     </div>
                     <div class="tooltip" data-tip="Frontend Mentor Profile">
-                        <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank"
-                            rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}"
-                                alt="frontend mentor logo"
-                                class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
+                        <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank" rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}" alt="frontend mentor logo" class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
                     </div>
                 </article>
             </div>
             <div class="flex items-center justify-between">
                 <div class="px-4 py-2 bg-red-700 rounded-3xl">
-                    <input type="text" wire:model.live="search"
-                        class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent"
-                        placeholder="Search" />
+                    <input type="text" wire:model.live="search" class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent" placeholder="Search" />
                 </div>
                 <div class="flex gap-8">
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">All</a>
-                    <a href=""
-                        class="px-4 py-2 transition-colors bg-red-500 rounded-3xl hover:bg-red-900">FullStack</a>
+                    <a href="" class="px-4 py-2 transition-colors bg-red-500 rounded-3xl hover:bg-red-900">FullStack</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Frontend</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Backend</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Fullstack and
                         Mobile</a>
                 </div>
             </div>
-            <p
-                class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-600 font-bold bg-[#1d232a]">
+            <p class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-600 font-bold bg-[#1d232a]">
                 Projects
             </p>
         </section>
@@ -79,45 +79,41 @@ mount(function () {
     <main class="py-8 m-auto max-w-7xl">
         <section class="grid grid-cols-2 gap-8 pt-8 ">
             @forelse ($this->projects as $project)
-                <article class="relative grow">
-                    <div class="flex justify-between pb-4">
-                        <a href="{{ route('projects.show', ['project' => $project]) }}">
-                            <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
-                        </a>
-                        <div class="flex flex-col items-end gap-2">
-                            <p>{{ $project->stage->name }}</p>
-                            <div>
+            <article class="relative grow">
+                <div class="flex justify-between pb-4">
+                    <a href="{{ route('projects.show', ['project' => $project]) }}">
+                        <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
+                    </a>
+                    <div class="flex flex-col items-end gap-2">
+                        <p>{{ $project->stage->name }}</p>
+                        <div>
 
-                                @forelse ($project->types as $type)
-                                    <a href=""
-                                        class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $type->title }}</a>
-                                @empty
-                                    <p class="text-sm font-bold text-gray-600">No type added</p>
-                                @endforelse
-                            </div>
+                            @forelse ($project->types as $type)
+                            <a href="" class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $type->title }}</a>
+                            @empty
+                            <p class="text-sm font-bold text-gray-600">No type added</p>
+                            @endforelse
                         </div>
                     </div>
-                    <a href="{{ route('projects.show', ['project' => $project]) }}">
-                        <figure class="relative rounded">
-                            <img src="{{ Vite::asset('resources/images/bubble-mockup.png') }}" alt=""
-                                class="w-full rounded-xl" />
-                            <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
-                            @if ($loop->odd)
-                                <div
-                                    class="h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
-                                </div>
-                            @endif
-                        </figure>
-                    </a>
-                    <a href="{{ route('projects.show', ['project' => $project]) }}">
-                        <p class="pt-4">{{ $project->summary }}</p>
-                    </a>
-                    <div
-                        class="h-[1px] w-3/4 rounded bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
-                    </div>
-                </article>
+                </div>
+                <a href="{{ route('projects.show', ['project' => $project]) }}">
+                    <figure class="relative rounded">
+                        <img src="{{ Vite::asset('resources/images/bubble-mockup.png') }}" alt="" class="w-full rounded-xl" />
+                        <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
+                        @if ($loop->odd)
+                        <div class="h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
+                        </div>
+                        @endif
+                    </figure>
+                </a>
+                <a href="{{ route('projects.show', ['project' => $project]) }}">
+                    <p class="pt-4">{{ $project->summary }}</p>
+                </a>
+                <div class="h-[1px] w-3/4 rounded bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
+                </div>
+            </article>
             @empty
-                <h2 class="col-span-2 text-center">No projects</h2>
+            <h2 class="col-span-2 text-center">No projects</h2>
             @endforelse
         </section>
     </main>

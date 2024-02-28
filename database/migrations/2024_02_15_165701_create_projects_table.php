@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignIdFor(Stage::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
             $table->longText('content')->nullable();
+            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }

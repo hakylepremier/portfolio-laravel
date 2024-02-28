@@ -56,6 +56,10 @@ class ProjectResource extends Resource
                 Forms\Components\Toggle::make('published')
                     ->default(true)
                     ->required(),
+                Forms\Components\TextInput::make('order')
+                    ->numeric()
+                    ->minValue(1)
+                    ->default(1),
                 Forms\Components\Select::make('stage_id')
                     ->relationship('stage', 'name')
                     ->default(1)
@@ -173,6 +177,7 @@ class ProjectResource extends Resource
                 // Tables\Columns\TextColumn::make(
                 //     'type.title'
                 // ),
+                Tables\Columns\TextColumn::make('order')->sortable(),
                 Tables\Columns\TextColumn::make('category.title'),
                 Tables\Columns\IconColumn::make('published')
                     ->boolean(),
@@ -186,7 +191,7 @@ class ProjectResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-            ])
+            ])->defaultSort('order', 'desc')
             ->filters([
                 Tables\Filters\SelectFilter::make('stage')
                     ->relationship('stage', 'name'),

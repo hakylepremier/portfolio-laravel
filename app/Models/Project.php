@@ -26,6 +26,7 @@ class Project extends Model
         'type_id',
         'published',
         'content',
+        'order',
     ];
 
     protected $attributes = [
