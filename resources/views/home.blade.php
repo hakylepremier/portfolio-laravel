@@ -1,3 +1,11 @@
+<?php
+
+use App\Models\Project;
+
+$projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2)->get();
+// $projects = Project::where('title', 'like', '%' . 'QQQQQQQQQ' . '%');
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -147,46 +155,38 @@
                     class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                     Projects</h2>
                 <div class="flex flex-col items-center justify-center gap-20">
-                    <article>
-                        <div class="object-contain p-8 bg-gray-800 rounded-3xl ">
-                            <img src="{{ Vite::asset('resources/images/news.jpeg') }}" class="w-full " alt="">
-                        </div>
-                        <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
-                        <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to
-                            build a
-                            simple news website
-                            homepage.</p>
-                        <div class="flex items-center justify-center gap-4 pt-6">
-                            <a href="https://hakylepremier.github.io/responsive-news-homepage-frontend/"
-                                class="text-center text-white btn btn-primary" target="_blank"
-                                rel="noopener noreferrer">Visit
-                                Site</a>
-                            <a href="https://github.com/hakylepremier/responsive-news-homepage-frontend"
-                                target="_blank" rel="noopener noreferrer"
-                                class="text-center text-white btn btn-primary">See the
-                                code</a>
-                        </div>
-                    </article>
-                    <article>
-                        <div class="object-contain p-8 bg-gray-800 rounded-3xl "><img
-                                src="{{ Vite::asset('resources/images/room.jpeg') }}" class="w-full "
-                                alt="">
-                        </div>
-                        <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
-                        <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to
-                            build a
-                            simple news website
-                            homepage.</p>
-                        <div class="flex items-center justify-center gap-4 pt-6">
-                            <a href="https://room-homepage-haky.netlify.app/"
-                                class="text-center text-white btn btn-primary" target="_blank"
-                                rel="noopener noreferrer">Visit
-                                Site</a>
-                            <a href="https://github.com/hakylepremier/room-homepage-frontend" target="_blank"
-                                rel="noopener noreferrer" class="text-center text-white btn btn-primary">See the
-                                code</a>
-                        </div>
-                    </article>
+                    @forelse ($projects as $project)
+                        <article>
+                            <div class="object-contain p-8 bg-gray-800 rounded-3xl ">
+                                @if ($project->photo)
+                                    <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
+                                        class="w-full rounded-xl" />
+                                @else
+                                    <x-not-found-image />
+                                @endif
+                            </div>
+                            <h3 class="py-6 text-xl font-bold text-center">{{ $project->title }}</h3>
+                            <p class="text-center">{{ $project->summary }}</p>
+                            <div class="flex items-center justify-center gap-4 pt-6">
+                                <a href="{{ route('projects.show', ['project' => $project]) }}"
+                                    class="text-center text-gray-800 btn btn-accent">Learn More</a>
+                                @foreach ($project->links as $link)
+                                    @if ($link->order >= 10)
+                                        <a href="{{ $link->url }}" class="text-center text-white btn btn-primary"
+                                            target="_blank" rel="noopener noreferrer">
+                                            @if ($link->title)
+                                                {{ $link->title }}
+                                            @else
+                                                {{ $link->link_type->title }}
+                                            @endif
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </article>
+                    @empty
+                        <p class="text-center">No projects available at the moment</p>
+                    @endforelse
                 </div>
             </section>
 
