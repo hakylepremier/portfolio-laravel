@@ -42,7 +42,7 @@ name('projects.show');
                                 @endif
                             </a>
                         @empty
-                            <p class="text-gray-400 text-sm font-bold">No links added</p>
+                            <p class="text-sm font-bold text-gray-400">No links added</p>
                         @endforelse
                     </div>
                 </div>
@@ -54,7 +54,7 @@ name('projects.show');
                                 class="px-2 py-1 text-xs transition-colors bg-red-500 rounded-3xl hover:bg-red-900">{{ $stack->title }}</a>
 
                         @empty
-                            <p class="text-gray-400 text-sm font-bold">No stack added</p>
+                            <p class="text-sm font-bold text-gray-400">No stack added</p>
                         @endforelse
                     </div>
                 </div>
@@ -63,42 +63,34 @@ name('projects.show');
 
         </section>
     </header>
-    <main class="max-w-5xl py-8 m-auto">
-        {{-- <figure class="relative rounded">
-            @if ($project->photo)
-                @foreach ($project->photo as $photo)
-                    <img src="{{ asset('storage/' . $photo) }}" alt="" class="w-32 h-32 rounded-xl" />
-                @endforeach
+    <main class="max-w-5xl py-8 m-auto border-b-2 border-gray-700">
 
-            @endif
-            <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
-        </figure> --}}
         <figure class="relative rounded">
             @if ($project->photo)
                 <img src="{{ asset('storage/' . $project->photo[0]) }}" alt="" class="w-full rounded-xl" />
-                {{-- <p>{{ $project->photo }}</p> --}}
             @else
-                {{-- <div class="relative">
-                    <img src="{{ Vite::asset('resources/images/no-project-image.webp') }}" alt=""
-                        class="w-full rounded-xl" />
-                    <p
-                        class="absolute lg:bottom-16 lg:text-xl left-0 uppercase font-bold text-gray-700 w-full text-center">
-                        Project Image Unavailable
-                    </p>
-                </div> --}}
                 <x-not-found-image />
             @endif
-            <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
         </figure>
         @if ($project->content)
-            <div class="py-8 prose-headings:underline prose-headings:pb-3">
+            <div class="pt-8 prose-headings:underline prose-headings:pb-3">
                 {!! Str::markdown($project->content) !!}
             </div>
         @else
-            <p class="py-8 text-gray-400">Information yet to be added</p>
+            <p class="pt-8 text-gray-400">Information yet to be added</p>
         @endif
 
     </main>
+    <section class="max-w-2xl px-4 py-16 mx-auto" id="contact">
+        <div class="flex flex-col items-center justify-center pb-12">
+            <h2 class="pb-6 text-3xl font-bold text-center uppercase after:bg-slate-300 after:contents">
+                Let's talk</h2>
+            <div class="w-8 h-1 rounded bg-primary" data-theme="mytheme"></div>
+            <h3 class="max-w-4xl pt-6 text-center">Feel free to Contact me by submitting the form below and
+                I will get back to you as soon as possible</h3>
+        </div>
+        <livewire:contact-form />
+    </section>
     <footer class="py-12 bg-gray-950">
         <div class="max-w-5xl m-auto">
 

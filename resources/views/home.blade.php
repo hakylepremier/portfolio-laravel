@@ -53,8 +53,8 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                     <ul class="flex gap-4 shrink-1">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('projects.index') }}">Projects</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contact </a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact </a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,7 +69,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             own project needs. The website is still under construction, but you can find me on social
                             media
                             through the links below.</h2>
-                        <a class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
+                        <a href="#contact" class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
                     </div>
                     <article class="absolute top-0 left-0 flex flex-col gap-1 p-1 bg-gray-800 rounded">
                         <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
@@ -93,7 +93,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         <!-- Page Content -->
         <main>
             <div class="bg-gray-800">
-                <section class="max-w-6xl px-4 py-24 mx-auto">
+                <section class="max-w-6xl px-4 py-24 mx-auto" id="about">
                     <div class="flex flex-col items-center justify-center pb-20">
                         <h2
                             class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
@@ -128,7 +128,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                                 I'm open to Job opportunities where I can contribute, learn and grow. If you have a good
                                 opportunity that matches my skills and experience then don't hesitate to contact me
                             </p>
-                            <a class="text-center text-white btn btn-primary">Let's talk</a>
+                            <a href="#contact" class="text-center text-white btn btn-primary">Let's talk</a>
                         </article>
                         <article>
                             <h4 class="pb-8 text-xl font-bold dark:text-white ">Skills</h4>
@@ -191,7 +191,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
             </section>
 
             <div class="bg-gray-800">
-                <section class="max-w-2xl px-4 py-24 mx-auto">
+                <section class="max-w-2xl px-4 py-24 mx-auto" id="contact">
                     <div class="flex flex-col items-center justify-center pb-12">
                         <h2
                             class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">

@@ -85,7 +85,7 @@ mount(function () {
         </section>
     </header>
     <main class="py-8 m-auto max-w-7xl">
-        <section class="grid grid-cols-2 gap-8 pt-8 ">
+        <section class="grid grid-cols-2 gap-8 pt-8 pb-20 border-b-2 border-gray-700">
             @forelse ($this->projects as $project)
                 <article class="relative grow">
                     <div class="flex justify-between pb-4">
@@ -116,7 +116,7 @@ mount(function () {
                                     <img src="{{ Vite::asset('resources/images/no-project-image.webp') }}"
                                         alt="" class="w-full rounded-xl" />
                                     <p
-                                        class="absolute bottom-8 left-0 uppercase font-bold text-gray-700 w-full text-center">
+                                        class="absolute left-0 w-full font-bold text-center text-gray-700 uppercase bottom-8">
                                         Project Image Unavailable
                                     </p>
                                 </div> --}}
@@ -140,6 +140,16 @@ mount(function () {
             @empty
                 <h2 class="col-span-2 text-center">No projects</h2>
             @endforelse
+        </section>
+        <section class="max-w-2xl px-4 py-16 mx-auto" id="contact">
+            <div class="flex flex-col items-center justify-center pb-12">
+                <h2 class="pb-6 text-3xl font-bold text-center uppercase after:bg-slate-300 after:contents">
+                    Let's talk</h2>
+                <div class="w-8 h-1 rounded bg-primary" data-theme="mytheme"></div>
+                <h3 class="max-w-4xl pt-6 text-center">Feel free to Contact me by submitting the form below and
+                    I will get back to you as soon as possible</h3>
+            </div>
+            <livewire:contact-form />
         </section>
     </main>
 </div>
