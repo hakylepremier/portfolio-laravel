@@ -51,27 +51,35 @@ mount(function () {
                 </article>
                 <article class="flex items-start gap-4">
                     <div class="tooltip" data-tip="Github Profile">
-                        <a href="https://github.com/hakylepremier" target="_blank" rel="noopener noreferrer"><i class="text-[32px] hover:text-[36px] fa-brands fa-github transition-all"></i></a>
+                        <a href="https://github.com/hakylepremier" target="_blank" rel="noopener noreferrer"><i
+                                class="text-[32px] hover:text-[36px] fa-brands fa-github transition-all"></i></a>
                     </div>
                     <div class="tooltip" data-tip="Frontend Mentor Profile">
-                        <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank" rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}" alt="frontend mentor logo" class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
+                        <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank"
+                            rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}"
+                                alt="frontend mentor logo"
+                                class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
                     </div>
                 </article>
             </div>
             <div class="flex items-center justify-between">
                 <div class="px-4 py-2 bg-red-700 rounded-3xl">
-                    <input type="text" wire:model.live="search" class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent" placeholder="Search" />
+                    <input type="text" wire:model.live="search"
+                        class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent"
+                        placeholder="Search" />
                 </div>
                 <div class="flex gap-8">
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">All</a>
-                    <a href="" class="px-4 py-2 transition-colors bg-red-500 rounded-3xl hover:bg-red-900">FullStack</a>
+                    <a href=""
+                        class="px-4 py-2 transition-colors bg-red-500 rounded-3xl hover:bg-red-900">FullStack</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Frontend</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Backend</a>
                     <a href="" class="px-4 py-2 transition-colors rounded-3xl hover:bg-red-900">Fullstack and
                         Mobile</a>
                 </div>
             </div>
-            <p class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-600 font-bold bg-[#1d232a]">
+            <p
+                class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-600 font-bold bg-[#1d232a]">
                 Projects
             </p>
         </section>
@@ -79,41 +87,58 @@ mount(function () {
     <main class="py-8 m-auto max-w-7xl">
         <section class="grid grid-cols-2 gap-8 pt-8 ">
             @forelse ($this->projects as $project)
-            <article class="relative grow">
-                <div class="flex justify-between pb-4">
-                    <a href="{{ route('projects.show', ['project' => $project]) }}">
-                        <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
-                    </a>
-                    <div class="flex flex-col items-end gap-2">
-                        <p>{{ $project->stage->name }}</p>
-                        <div>
+                <article class="relative grow">
+                    <div class="flex justify-between pb-4">
+                        <a href="{{ route('projects.show', ['project' => $project]) }}">
+                            <h2 class="items-start max-w-xs card-title">{{ $project->title }}</h2>
+                        </a>
+                        <div class="flex flex-col items-end gap-2">
+                            <p>{{ $project->stage->name }}</p>
+                            <div>
 
-                            @forelse ($project->types as $type)
-                            <a href="" class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $type->title }}</a>
-                            @empty
-                            <p class="text-sm font-bold text-gray-600">No type added</p>
-                            @endforelse
+                                @forelse ($project->types as $type)
+                                    <a href=""
+                                        class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600">{{ $type->title }}</a>
+                                @empty
+                                    <p class="text-sm font-bold text-gray-600">No type added</p>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
-                </div>
-                <a href="{{ route('projects.show', ['project' => $project]) }}">
-                    <figure class="relative rounded">
-                        <img src="{{ Vite::asset('resources/images/bubble-mockup.png') }}" alt="" class="w-full rounded-xl" />
-                        <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
-                        @if ($loop->odd)
-                        <div class="h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
-                        </div>
-                        @endif
-                    </figure>
-                </a>
-                <a href="{{ route('projects.show', ['project' => $project]) }}">
-                    <p class="pt-4">{{ $project->summary }}</p>
-                </a>
-                <div class="h-[1px] w-3/4 rounded bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
-                </div>
-            </article>
+                    <a href="{{ route('projects.show', ['project' => $project]) }}">
+                        <figure class="relative rounded">
+                            @if ($project->photo)
+                                <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
+                                    class="w-full rounded-xl aspect-[8/5] object-cover" />
+                                {{-- <p>{{ $project->photo }}</p> --}}
+                            @else
+                                {{-- <div class="relative">
+                                    <img src="{{ Vite::asset('resources/images/no-project-image.webp') }}"
+                                        alt="" class="w-full rounded-xl" />
+                                    <p
+                                        class="absolute bottom-8 left-0 uppercase font-bold text-gray-700 w-full text-center">
+                                        Project Image Unavailable
+                                    </p>
+                                </div> --}}
+                                <x-not-found-image-small />
+                            @endif
+                            <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
+                            @if ($loop->odd)
+                                <div
+                                    class="h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
+                                </div>
+                            @endif
+                        </figure>
+                    </a>
+                    <a href="{{ route('projects.show', ['project' => $project]) }}">
+                        <p class="pt-4">{{ $project->summary }}</p>
+                    </a>
+                    <div
+                        class="h-[1px] w-3/4 rounded bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
+                    </div>
+                </article>
             @empty
-            <h2 class="col-span-2 text-center">No projects</h2>
+                <h2 class="col-span-2 text-center">No projects</h2>
             @endforelse
         </section>
     </main>

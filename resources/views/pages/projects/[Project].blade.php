@@ -64,7 +64,7 @@ name('projects.show');
         </section>
     </header>
     <main class="max-w-5xl py-8 m-auto">
-        <figure class="relative rounded">
+        {{-- <figure class="relative rounded">
             @if ($project->photo)
                 @foreach ($project->photo as $photo)
                     <img src="{{ asset('storage/' . $photo) }}" alt="" class="w-32 h-32 rounded-xl" />
@@ -72,10 +72,22 @@ name('projects.show');
 
             @endif
             <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
-        </figure>
+        </figure> --}}
         <figure class="relative rounded">
-            <img src="{{ Vite::asset('resources/images/bubble-mockup.png') }}" alt=""
-                class="w-full rounded-xl" />
+            @if ($project->photo)
+                <img src="{{ asset('storage/' . $project->photo[0]) }}" alt="" class="w-full rounded-xl" />
+                {{-- <p>{{ $project->photo }}</p> --}}
+            @else
+                {{-- <div class="relative">
+                    <img src="{{ Vite::asset('resources/images/no-project-image.webp') }}" alt=""
+                        class="w-full rounded-xl" />
+                    <p
+                        class="absolute lg:bottom-16 lg:text-xl left-0 uppercase font-bold text-gray-700 w-full text-center">
+                        Project Image Unavailable
+                    </p>
+                </div> --}}
+                <x-not-found-image />
+            @endif
             <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
         </figure>
         @if ($project->content)
