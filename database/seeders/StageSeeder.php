@@ -14,7 +14,7 @@ class StageSeeder extends Seeder
     public function run(): void
     {
         $stages = [
-            'In production' => 'red',
+            'In development' => 'red',
             'Released' => 'green',
             'Archived' => 'blue'
         ];

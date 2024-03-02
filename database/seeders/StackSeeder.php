@@ -33,6 +33,8 @@ class StackSeeder extends Seeder
             "Tamagui" => "Frontend",
             "Expo Router" => "Mobile",
             "React Native Navigation" => "Mobile",
+            "HTML & CSS" => "FrontEnd",
+            "Vanilla JavaScript" => "FrontEnd",
             "Typescript" => "Language",
         ];
 

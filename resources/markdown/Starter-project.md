@@ -21,7 +21,7 @@ This is a challenge posed by Frontend Mentor to build a simple news website home
                     <article>
                         <div class="object-contain p-8 bg-gray-800 rounded-3xl "><img src="{{ Vite::asset('resources/images/room.jpeg') }}" class="w-full " alt="">
                         </div>
-                        <h3 class="py-6 text-xl font-bold text-center">Responsive News Homepage</h3>
+                        <h3 class="py-6 text-xl font-bold text-center">Room Homepage</h3>
                         <p class="text-center">This is a challenge posed by <a href="">Frontend Mentor</a> to
                             build a
                             simple news website
