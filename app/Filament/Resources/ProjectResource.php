@@ -45,6 +45,7 @@ class ProjectResource extends Resource
                 Forms\Components\FileUpload::make('photo')
                     ->image()
                     ->imageEditor()
+                    ->directory('projects')
                     ->multiple(),
                 Forms\Components\Textarea::make('summary')
                     ->required()

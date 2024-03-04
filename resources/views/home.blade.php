@@ -38,18 +38,23 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased" data-theme="mytheme">
+<body class="font-sans antialiased bg-gray-100 dark:bg-gray-800" data-theme="mytheme">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ">
         <header
             class="flex flex-col h-screen bg-[url('{{ Vite::asset('resources/images/bgrnd.jpg') }}')] bg-cover dark:bg-gray-800"
             style="background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');background-blend-mode: multiply">
             <div class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
 
-                <nav class="flex flex-row items-center justify-between max-w-6xl p-4 m-auto ">
+                <nav class="flex flex-row items-center justify-between max-w-6xl p-4 m-auto " x-data="{ open: false, toggle() { this.open = !this.open; } }">
                     {{-- <x-navigation /> --}}
                     <a href="{{ route('home') }}">
                         <img src="{{ Vite::asset('resources/images/LOGO.svg') }}" alt="My logo" class="w-8 h-8">
                     </a>
+                    {{-- <div @click="toggle"
+                        class="hover:bg-gray-900 rounded text-white hover:text-accent cursor-pointer px-2 max-[400px]:block hidden">
+                        <i class="fa-solid fa-bars text-inherit"></i>
+                    </div> --}}
+                    {{-- <div class="menu"></div> --}}
                     <ul class="flex gap-4 shrink-1">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('projects.index') }}">Projects</a></li>
@@ -61,8 +66,11 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
             <section class="flex items-center justify-center flex-1">
                 <div class="relative w-full">
                     <div class="flex flex-col items-center justify-center max-w-3xl gap-8 pb-12 mx-auto ">
-                        <h1 class="text-5xl font-bold text-center uppercase">Hello, I'm Humphrey Yeboah</h1>
-                        <h2 class="px-8 text-center">I'm a web and mobile app developer. I'm in the process of creating
+                        <h1 class="md:text-5xl sm:text-4xl text-3xl px-2 font-bold text-center uppercase">Hello, I'm
+                            Humphrey Yeboah
+                        </h1>
+                        <h2 class="px-8 text-center">I'm a web and mobile app developer. I'm in
+                            the process of creating
                             this
                             website to showcase my amazing projects and to make it easy for you to reach out to me for
                             your
@@ -71,7 +79,8 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             through the links below.</h2>
                         <a href="#contact" class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
                     </div>
-                    <article class="absolute top-0 left-0 flex flex-col gap-1 p-1 bg-gray-800 rounded">
+                    <article
+                        class="absolute top-0 left-0 max-[900px]:hidden flex flex-col gap-1 p-1 bg-gray-800 rounded">
                         <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
                             class="p-3 text-white transition-colors rounded hover:bg-accent hover:text-gray-800"
                             target="_blank" rel="noopener noreferrer"><i
@@ -93,22 +102,22 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         <!-- Page Content -->
         <main>
             <div class="bg-gray-800">
-                <section class="max-w-6xl px-4 py-24 mx-auto" id="about">
-                    <div class="flex flex-col items-center justify-center pb-20">
+                <section class="max-w-6xl sm:px-16 px-8 lg:py-24 py-20 mx-auto" id="about">
+                    <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center lg:pb-20 pb-16">
                         <h2
-                            class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                            class="md:text-3xl text-2xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                             About
                             Me</h2>
                         <div class="w-8 h-1 rounded bg-primary"></div>
-                        <h3 class="max-w-4xl pt-6 text-center">Here you will find more information about me, what I do,
+                        <h3 class="max-w-4xl text-center">Here you will find more information about me, what I do,
                             and my
                             current
                             skills mostly in
                             terms of programming and technology</h3>
                     </div>
-                    <div class="grid grid-cols-2 gap-4 ">
+                    <div class="grid md:grid-cols-2 lg:gap-4 md:gap-6 gap-12">
                         <article class="">
-                            <h4 class="pb-8 text-xl font-bold dark:text-white ">Get to know me!</h4>
+                            <h4 class="sm:pb-8 pb-6 text-xl font-bold dark:text-white ">Get to know me!</h4>
                             <p class="pb-8 md:max-w-md dark:text-gray-300">
                                 I'm a Frontend Web Developer building the Front-end of Websites and Web Applications
                                 that
@@ -131,7 +140,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             <a href="#contact" class="text-center text-white btn btn-primary">Let's talk</a>
                         </article>
                         <article>
-                            <h4 class="pb-8 text-xl font-bold dark:text-white ">Skills</h4>
+                            <h4 class="sm:pb-8 pb-6 text-xl font-bold dark:text-white ">Skills</h4>
                             <div>
                                 <div class="mb-2 btn btn-neutral ">Lorem.</div>
                                 <div class="mb-2 btn btn-neutral ">Atque.</div>
@@ -150,14 +159,18 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                     </div>
                 </section>
             </div>
-            <section class="max-w-6xl px-4 py-24 mx-auto">
-                <h2
-                    class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
-                    Projects</h2>
-                <div class="flex flex-col items-center justify-center gap-20">
+            <section class="max-w-6xl px-4 lg:py-24 py-20 mx-auto">
+                <div class="flex flex-col items-center justify-center sm:gap-6 gap-3 lg:pb-20 pb-12">
+                    <h2
+                        class=" md:text-3xl text-2xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                        Projects</h2>
+                    <div class="w-8 h-1 rounded bg-primary"></div>
+                    <h3 class="max-w-4xl text-center">Here are a few projects I have worked on.</h3>
+                </div>
+                <div class="flex flex-col items-center justify-center sm:gap-20 gap-12">
                     @forelse ($projects as $project)
                         <article>
-                            <div class="object-contain p-8 bg-gray-800 rounded-3xl ">
+                            <div class="object-contain md:p-8 p-4 bg-gray-800 rounded-3xl ">
                                 @if ($project->photo)
                                     <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
                                         class="w-full rounded-xl" />
@@ -192,12 +205,12 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
 
             <div class="bg-gray-800">
                 <section class="max-w-2xl px-4 py-24 mx-auto" id="contact">
-                    <div class="flex flex-col items-center justify-center pb-12">
+                    <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center pb-12">
                         <h2
-                            class="pb-6 text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                            class=" text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                             Let's talk</h2>
                         <div class="w-8 h-1 rounded bg-primary"></div>
-                        <h3 class="max-w-4xl pt-6 text-center">Feel free to Contact me by submitting the form below and
+                        <h3 class="max-w-4xl text-center">Feel free to Contact me by submitting the form below and
                             I will get back to you as soon as possible</h3>
                     </div>
                     <livewire:contact-form />
@@ -206,7 +219,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         </main>
     </div>
     <footer class="py-12 bg-gray-950">
-        <div class="max-w-4xl m-auto">
+        <div class="max-w-4xl m-auto md:px-8">
 
             <x-footer />
         </div>
