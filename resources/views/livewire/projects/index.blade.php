@@ -35,7 +35,7 @@ mount(function () {
 ?>
 
 <div>
-    <header class="m-auto max-w-7xl px-8">
+    <header class="m-auto max-w-7xl md:px-8 px-4">
         <x-navigation />
         <section class="relative py-8 border-gray-700 border-y-2">
             <div class="flex justify-between md:gap-0 gap-2">
@@ -84,7 +84,7 @@ mount(function () {
             </p>
         </section>
     </header>
-    <main class="md:pt-8 p-8 pt-0 m-auto max-w-7xl">
+    <main class="md:pt-8 p-8 md:px-8 px-4 pt-0 m-auto max-w-7xl">
         <section
             class="md:grid md:grid-cols-2 md:divide-y-0 divide-y divide-gray-600 gap-8 md:pt-8 md:pb-20 border-b-2 border-gray-700">
             @forelse ($this->projects as $project)
@@ -144,7 +144,7 @@ mount(function () {
                 <h2 class="col-span-2 text-center">No projects</h2>
             @endforelse
         </section>
-        <section class="max-w-2xl px-4 md:pt-16 pt-8 py-16 mx-auto" id="contact">
+        <section class="max-w-2xl px-2 md:pt-16 pt-8 py-16 md:px-8  mx-auto" id="contact">
             <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center pb-12">
                 <h2
                     class=" text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">

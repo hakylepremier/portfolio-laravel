@@ -10,7 +10,7 @@ name('projects.show');
 
 ?>
 <x-guest-layout>
-    <header class="max-w-5xl m-auto">
+    <header class="max-w-5xl m-auto lg:px-4 md:px-8 px-4">
         <x-navigation />
         <section class="relative py-8 border-gray-700 border-y-2">
             {{-- <div class="flex justify-between"> --}}
@@ -63,36 +63,38 @@ name('projects.show');
 
         </section>
     </header>
-    <main class="max-w-5xl py-8 m-auto border-b-2 border-gray-700">
+    <main class="max-w-5xl m-auto lg:px-4 md:px-8 px-4">
+        <div class="border-b-2 sm:py-8 py-4 border-gray-700">
 
-        <figure class="relative rounded">
-            @if ($project->photo)
-                <img src="{{ asset('storage/' . $project->photo[0]) }}" alt="" class="w-full rounded-xl" />
+            <figure class="relative rounded">
+                @if ($project->photo)
+                    <img src="{{ asset('storage/' . $project->photo[0]) }}" alt="" class="w-full rounded-xl" />
+                @else
+                    <x-not-found-image />
+                @endif
+            </figure>
+            @if ($project->content)
+                <div class="pt-8 prose-headings:underline prose-headings:pb-3">
+                    {!! Str::markdown($project->content) !!}
+                </div>
             @else
-                <x-not-found-image />
+                <p class="pt-8 text-gray-400">Information yet to be added</p>
             @endif
-        </figure>
-        @if ($project->content)
-            <div class="pt-8 prose-headings:underline prose-headings:pb-3">
-                {!! Str::markdown($project->content) !!}
-            </div>
-        @else
-            <p class="pt-8 text-gray-400">Information yet to be added</p>
-        @endif
+        </div>
 
     </main>
-    <section class="max-w-2xl px-4 py-16 mx-auto" id="contact">
-        <div class="flex flex-col items-center justify-center pb-12">
-            <h2 class="pb-6 text-3xl font-bold text-center uppercase after:bg-slate-300 after:contents">
+    <section class="max-w-2xl px-4 py-16 md:pt-16 pt-8 mx-auto" id="contact">
+        <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center pb-12">
+            <h2 class=" text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                 Let's talk</h2>
             <div class="w-8 h-1 rounded bg-primary" data-theme="mytheme"></div>
-            <h3 class="max-w-4xl pt-6 text-center">Feel free to Contact me by submitting the form below and
+            <h3 class="max-w-4xl text-center">Feel free to Contact me by submitting the form below and
                 I will get back to you as soon as possible</h3>
         </div>
         <livewire:contact-form />
     </section>
     <footer class="py-12 bg-gray-950">
-        <div class="max-w-5xl m-auto">
+        <div class="max-w-5xl m-auto md:px-8">
 
             <x-footer />
         </div>
