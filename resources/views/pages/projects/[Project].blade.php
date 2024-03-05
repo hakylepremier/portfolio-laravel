@@ -50,8 +50,8 @@ name('projects.show');
                     <h3 class="text-xl font-bold">Stack</h3>
                     <div class="flex flex-wrap gap-2 pt-2 basis-full">
                         @forelse ($project->stacks as $stack)
-                            <a href=""
-                                class="px-2 py-1 text-xs transition-colors bg-red-500 rounded-3xl hover:bg-red-900">{{ $stack->title }}</a>
+                            <p href="" class="px-2 py-1 text-xs transition-colors bg-red-500 rounded-3xl">
+                                {{ $stack->title }}</p>
 
                         @empty
                             <p class="text-sm font-bold text-gray-400">No stack added</p>

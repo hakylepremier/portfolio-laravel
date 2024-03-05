@@ -99,8 +99,9 @@ mount(function () {
                             <nav class="flex flex-shrink max-w-64 items-end justify-end flex-row-reverse">
                                 <div class="flex flex-wrap gap-2 items-end justify-end">
                                     @forelse ($project->types as $type)
-                                        <a href=""
-                                            class="px-2 py-1 transition-colors bg-red-800 rounded-badge hover:bg-red-600 lg:text-base text-sm">{{ $type->title }}</a>
+                                        <p href=""
+                                            class="px-2 py-1 transition-colors bg-red-800 rounded-badge  lg:text-base text-sm">
+                                            {{ $type->title }}</p>
                                     @empty
                                         <p class="text-sm font-bold text-gray-600">No type added</p>
                                     @endforelse
