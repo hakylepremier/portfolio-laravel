@@ -17,6 +17,7 @@ class Stack extends Model
         'title',
         'slug',
         'kind_id',
+        'image',
         'description',
         'order',
     ];

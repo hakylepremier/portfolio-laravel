@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->foreignIdFor(Kind::class)->constrained()->cascadeOnDelete();
+            $table->string('image', 2048)->nullable();
             $table->text('description')->nullable();
             $table->integer('order')->default(1);
             $table->timestamps();

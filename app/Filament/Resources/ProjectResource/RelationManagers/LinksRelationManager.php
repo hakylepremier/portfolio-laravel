@@ -29,7 +29,7 @@ class LinksRelationManager extends RelationManager
                 Forms\Components\TextInput::make('order')
                     ->numeric()
                     ->minValue(1)
-                    ->default(1),
+                    ->default(1)->hintIcon('heroicon-m-question-mark-circle', tooltip: 'Orders that are 10 or above will appear in the homepage if project is in the homepage.'),
             ]);
     }
 
@@ -39,7 +39,7 @@ class LinksRelationManager extends RelationManager
             ->recordTitleAttribute('url')
             ->columns([
                 Tables\Columns\TextColumn::make('link_type.title'),
-                Tables\Columns\TextColumn::make('order')->sortable(),
+                Tables\Columns\TextColumn::make('order')->sortable()->tooltip('Orders that are 10 or above will appear in the homepage if project is in the homepage.'),
                 Tables\Columns\TextColumn::make('url'),
                 // ->searchable(),
                 Tables\Columns\TextColumn::make('title'),

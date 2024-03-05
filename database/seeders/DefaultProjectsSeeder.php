@@ -39,7 +39,7 @@ class DefaultProjectsSeeder extends Seeder
                     ])['id'],
                     'published' => true,
                     'content' => null,
-                    'order' => 2,
+                    'order' => 6,
                 ],
                 'types' => [
                     Type::firstOrCreate([
@@ -72,6 +72,7 @@ class DefaultProjectsSeeder extends Seeder
                         'title' => 'Visit Site',
                         'url' => 'https://hakylepremier.github.io/responsive-news-homepage-frontend/',
                         'project_id' => 1,
+                        'order' => 10,
                         'link_type_id' => LinkType::firstOrCreate([
                             'title' => 'Live Site',
                             'slug' => Str::slug('Live Site'),
@@ -81,6 +82,7 @@ class DefaultProjectsSeeder extends Seeder
                         'title' => 'See the code',
                         'url' => 'https://github.com/hakylepremier/responsive-news-homepage-frontend',
                         'project_id' => 2,
+                        'order' => 10,
                         'link_type_id' => LinkType::firstOrCreate([
                             'title' => 'Github',
                             'slug' => Str::slug('Github'),
@@ -104,7 +106,7 @@ class DefaultProjectsSeeder extends Seeder
                     ])['id'],
                     'published' => true,
                     'content' => null,
-                    'order' => 2,
+                    'order' => 6,
                 ],
                 'types' => [
                     Type::firstOrCreate([
@@ -146,6 +148,7 @@ class DefaultProjectsSeeder extends Seeder
                         'title' => 'Visit Site',
                         'url' => 'https://room-homepage-haky.netlify.app/',
                         'project_id' => 1,
+                        'order' => 10,
                         'link_type_id' => LinkType::firstOrCreate([
                             'title' => 'Live Site',
                             'slug' => Str::slug('Live Site'),
@@ -155,6 +158,7 @@ class DefaultProjectsSeeder extends Seeder
                         'title' => 'See the code',
                         'url' => 'https://github.com/hakylepremier/room-homepage-frontend',
                         'project_id' => 2,
+                        'order' => 10,
                         'link_type_id' => LinkType::firstOrCreate([
                             'title' => 'Github',
                             'slug' => Str::slug('Github'),
