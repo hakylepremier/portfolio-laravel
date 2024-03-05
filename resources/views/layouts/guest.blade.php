@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="overflow-x-auto">
 
 <head>
     <meta charset="utf-8">
@@ -32,7 +32,7 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="md:overflow-x-auto overflow-x-hidden">
     <div class="font-sans antialiased text-gray-900 dark:text-gray-100">
         {{ $slot }}
     </div>
