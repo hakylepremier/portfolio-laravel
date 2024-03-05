@@ -160,6 +160,7 @@ class ProjectResource extends Resource
                             ->default(1),
                     ]),
                 Forms\Components\MarkdownEditor::make('content')
+                    ->fileAttachmentsDirectory('attachments')
                     ->columnSpanFull(),
                 //     ->toolbarButtons([
                 //         'attachFiles',

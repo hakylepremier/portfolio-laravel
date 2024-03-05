@@ -74,7 +74,8 @@ name('projects.show');
                 @endif
             </figure>
             @if ($project->content)
-                <div class="pt-8 prose-headings:underline prose-headings:pb-3">
+                <div class="pt-8 prose-headings:text-white text-gray-100 prose-li:ml-4 transition-all prose-ol:list-decimal prose-ul:list-disc prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-headings:text-xl  prose-headings:font-bold prose-headings:pt-4 prose-headings:pb-2 prose-p:py-2 prose-a:border-b-2 hover:prose-a:text-white hover:prose-a:font-bold hover:prose-a:border-accent prose-a:border-primary bg-[#1d232a] prose-pre:pt-2"
+                    data-theme="mytheme">
                     {!! Str::markdown($project->content) !!}
                 </div>
             @else
