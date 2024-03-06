@@ -16,26 +16,18 @@ class ProjectIndexTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $stages = [
-            'In production',
-            'Released',
-            'Archived'
-        ];
-        $stage = Stage::create([
-            'name' => 'In production'
-        ]);
 
         Project::factory()->create([
             'title' => 'test project',
-            'stage_id' => $stage->id,
+            'published' => true
         ]);
         Project::factory()->create([
             'title' => 'test second',
-            'stage_id' => $stage->id,
+            'published' => true
         ]);
         Project::factory()->create([
             'title' => 'Queen',
-            'stage_id' => $stage->id,
+            'published' => true
         ]);
     }
 

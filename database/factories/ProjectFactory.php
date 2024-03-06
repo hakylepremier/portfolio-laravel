@@ -23,6 +23,15 @@ class ProjectFactory extends Factory
         $title = fake()->realTextBetween(20, 50);
         $description = fake()->boolean();
         $content = fake()->boolean();
+
+        if (Category::count() === 0) {
+            Category::factory(5)->create();
+        }
+
+        if (Stage::count() === 0) {
+            Stage::factory(5)->create();
+        }
+
         return [
             'title' => $title,
             'slug' => Str::slug($title),

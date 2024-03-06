@@ -39,6 +39,7 @@ class ProjectResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
+                    ->string()
                     ->unique('projects', 'slug', ignoreRecord: true)
                     ->required()
                     ->maxLength(255),
@@ -48,10 +49,12 @@ class ProjectResource extends Resource
                     ->directory('projects')
                     ->multiple(),
                 Forms\Components\Textarea::make('summary')
+                    ->string()
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\Textarea::make('description')
+                    ->string()
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('published')
@@ -63,12 +66,11 @@ class ProjectResource extends Resource
                     ->default(1),
                 Forms\Components\Select::make('stage_id')
                     ->relationship('stage', 'name')
-                    ->default(1)
-                    ->required()
-                    ->searchable(),
+                    ->preload()
+                    ->searchable()
+                    ->required(),
                 Forms\Components\Select::make('category_id')
                     ->relationship('category', 'title')
-                    ->default(1)
                     ->searchable()
                     ->preload()
                     ->createOptionForm([
@@ -155,11 +157,13 @@ class ProjectResource extends Resource
                             ->maxLength(65535)
                             ->columnSpanFull(),
                         Forms\Components\TextInput::make('order')
+                            ->required()
                             ->numeric()
                             ->minValue(1)
                             ->default(1),
                     ]),
                 Forms\Components\MarkdownEditor::make('content')
+                    ->string()
                     ->fileAttachmentsDirectory('attachments')
                     ->columnSpanFull(),
                 //     ->toolbarButtons([
