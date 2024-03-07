@@ -1,16 +1,64 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-89w0faSb.css",
+    "file": "assets/app-NNIVKovC.css",
     "isEntry": true,
     "src": "resources/css/app.css"
+  },
+  "resources/images/LOGO.png": {
+    "file": "assets/LOGO-OzPz-fcU.png",
+    "src": "resources/images/LOGO.png"
+  },
+  "resources/images/LOGO.svg": {
+    "file": "assets/LOGO-PCBzKZJP.svg",
+    "src": "resources/images/LOGO.svg"
   },
   "resources/images/bgrnd.jpg": {
     "file": "assets/bgrnd-J7knOlBg.jpg",
     "src": "resources/images/bgrnd.jpg"
   },
+  "resources/images/bubble-mockup.png": {
+    "file": "assets/bubble-mockup-e6fuRHQw.png",
+    "src": "resources/images/bubble-mockup.png"
+  },
+  "resources/images/favicon/android-chrome-192x192.png": {
+    "file": "assets/android-chrome-192x192-MYgzRFui.png",
+    "src": "resources/images/favicon/android-chrome-192x192.png"
+  },
+  "resources/images/favicon/android-chrome-512x512.png": {
+    "file": "assets/android-chrome-512x512-RfFeLrxj.png",
+    "src": "resources/images/favicon/android-chrome-512x512.png"
+  },
+  "resources/images/favicon/apple-touch-icon.png": {
+    "file": "assets/apple-touch-icon-Ja52-mU2.png",
+    "src": "resources/images/favicon/apple-touch-icon.png"
+  },
+  "resources/images/favicon/favicon-16x16.png": {
+    "file": "assets/favicon-16x16-qYI5mQHr.png",
+    "src": "resources/images/favicon/favicon-16x16.png"
+  },
+  "resources/images/favicon/favicon-32x32.png": {
+    "file": "assets/favicon-32x32--UFXNNfa.png",
+    "src": "resources/images/favicon/favicon-32x32.png"
+  },
+  "resources/images/favicon/favicon.ico": {
+    "file": "assets/favicon-pZ9wjqDM.ico",
+    "src": "resources/images/favicon/favicon.ico"
+  },
+  "resources/images/favicon/site.webmanifest": {
+    "file": "assets/site-cBxXiAWk.webmanifest",
+    "src": "resources/images/favicon/site.webmanifest"
+  },
+  "resources/images/fm-logo.jpeg": {
+    "file": "assets/fm-logo-3oj-VE-1.jpeg",
+    "src": "resources/images/fm-logo.jpeg"
+  },
   "resources/images/news.jpeg": {
     "file": "assets/news-ZVswXU4C.jpeg",
     "src": "resources/images/news.jpeg"
+  },
+  "resources/images/no-project-image.webp": {
+    "file": "assets/no-project-image-PEKy02yw.webp",
+    "src": "resources/images/no-project-image.webp"
   },
   "resources/images/room.jpeg": {
     "file": "assets/room-cWA2rsqU.jpeg",
