@@ -66,17 +66,11 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
             <section class="flex items-center justify-center flex-1">
                 <div class="relative w-full">
                     <div class="flex flex-col items-center justify-center max-w-3xl gap-8 pb-12 mx-auto ">
-                        <h1 class="md:text-5xl sm:text-4xl text-3xl px-2 font-bold text-center uppercase">Hello, I'm
+                        <h1 class="px-2 text-3xl font-bold text-center uppercase md:text-5xl sm:text-4xl">Hello, I'm
                             Humphrey Yeboah
                         </h1>
-                        <h2 class="px-8 text-center">I'm a web and mobile app developer. I'm in
-                            the process of creating
-                            this
-                            website to showcase my amazing projects and to make it easy for you to reach out to me for
-                            your
-                            own project needs. The website is still under construction, but you can find me on social
-                            media
-                            through the links below.</h2>
+                        <h2 class="px-8 text-center">I'm a full stack web and mobile app developer, a robotics
+                            enthusiast and a livelong learner. Let me help put your business online.</h2>
                         <a href="#contact" class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
                     </div>
                     <article
@@ -102,10 +96,10 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         <!-- Page Content -->
         <main>
             <div class="bg-gray-800">
-                <section class="max-w-6xl sm:px-16 px-8 lg:py-24 py-20 mx-auto" id="about">
-                    <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center lg:pb-20 pb-16">
+                <section class="max-w-6xl px-8 py-20 mx-auto sm:px-16 lg:py-24" id="about">
+                    <div class="flex flex-col items-center justify-center gap-3 pb-16 sm:gap-6 lg:pb-20">
                         <h2
-                            class="md:text-3xl text-2xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                            class="text-2xl font-bold text-center uppercase md:text-3xl after:w-7 after:h-2 after:bg-slate-300 after:contents">
                             About
                             Me</h2>
                         <div class="w-8 h-1 rounded bg-primary"></div>
@@ -115,62 +109,61 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             skills mostly in
                             terms of programming and technology</h3>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:gap-4 md:gap-6 gap-12">
+                    <div class="grid gap-12 md:grid-cols-2 lg:gap-4 md:gap-6">
                         <article class="">
-                            <h4 class="sm:pb-8 pb-6 text-xl font-bold dark:text-white ">Get to know me!</h4>
+                            <h4 class="pb-6 text-xl font-bold sm:pb-8 dark:text-white ">Get to know me!</h4>
                             <p class="pb-8 md:max-w-md dark:text-gray-300">
-                                I'm a Frontend Web Developer building the Front-end of Websites and Web Applications
-                                that
-                                leads
-                                to the success of the overall product. Check out some of my work in the Projects
+                                I am a Full Stack web developer and mobile app developer based in Ghana. Check out some
+                                of my work in the Projects
                                 section.
                                 <br><br>
-
-                                I also like sharing content related to the stuff that I have learned over the years in
-                                Web
-                                Development so it can help other people of the Dev Community. Feel free to Connect or
-                                Follow
-                                me
-                                on my Linkedin where I post useful content related to Web Development and Programming
+                                I started my tech journey in high school where I participated in robotics competitions
+                                with my high school. I went on to pursue Actuarial Science in university where I fell in
+                                love with software, specifically web development. In university I also learnt to make
+                                mobile apps, first with low code tools and then with react native.
+                                <br><br>
+                                I also taught
+                                robotics during my time in university to broaden my understanding of technology outside
+                                software alone. After completing my Bachelor's degree I taught basic web development in
+                                a high school for a year.
                                 <br><br>
 
-                                I'm open to Job opportunities where I can contribute, learn and grow. If you have a good
-                                opportunity that matches my skills and experience then don't hesitate to contact me
+                                I'm open to job opportunities where I can contribute, learn and grow. You can also reach
+                                out to me if you want me to build your next website or mobile app.
                             </p>
                             <a href="#contact" class="text-center text-white btn btn-primary">Let's talk</a>
                         </article>
                         <article>
-                            <h4 class="sm:pb-8 pb-6 text-xl font-bold dark:text-white ">Skills</h4>
+                            <h4 class="pb-6 text-xl font-bold sm:pb-8 dark:text-white ">Skills</h4>
                             <div>
-                                <div class="mb-2 btn btn-neutral ">Lorem.</div>
-                                <div class="mb-2 btn btn-neutral ">Atque.</div>
-                                <div class="mb-2 btn btn-neutral ">Non!</div>
-                                <div class="mb-2 btn btn-neutral ">Vel.</div>
-                                <div class="mb-2 btn btn-neutral ">Eius.</div>
-                                <div class="mb-2 btn btn-neutral ">Ea.</div>
-                                <div class="mb-2 btn btn-neutral ">Voluptate?</div>
-                                <div class="mb-2 btn btn-neutral ">Saepe.</div>
-                                <div class="mb-2 btn btn-neutral ">Voluptatibus?</div>
-                                <div class="mb-2 btn btn-neutral ">Impedit!</div>
-                                <div class="mb-2 btn btn-neutral ">Dolorum!</div>
-                                <div class="mb-2 btn btn-neutral ">Quaerat!</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">HTML & CSS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">JavaScript</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Tailwind CSS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">React JS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Sass</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Pug JS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Laravel</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Inertia JS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Livewire</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">React Native</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Expo Router</div>
                             </div>
                         </article>
                     </div>
                 </section>
             </div>
-            <section class="max-w-6xl px-4 lg:py-24 py-20 mx-auto">
-                <div class="flex flex-col items-center justify-center sm:gap-6 gap-3 lg:pb-20 pb-12">
+            <section class="max-w-6xl px-4 py-20 mx-auto lg:py-24">
+                <div class="flex flex-col items-center justify-center gap-3 pb-12 sm:gap-6 lg:pb-20">
                     <h2
-                        class=" md:text-3xl text-2xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                        class="text-2xl font-bold text-center uppercase md:text-3xl after:w-7 after:h-2 after:bg-slate-300 after:contents">
                         Projects</h2>
                     <div class="w-8 h-1 rounded bg-primary"></div>
                     <h3 class="max-w-4xl text-center">Here are a few projects I have worked on.</h3>
                 </div>
-                <div class="flex flex-col items-center justify-center sm:gap-20 gap-12">
+                <div class="flex flex-col items-center justify-center gap-12 sm:gap-20">
                     @forelse ($projects as $project)
                         <article>
-                            <div class="object-contain md:p-8 p-4 bg-gray-800 rounded-3xl ">
+                            <div class="object-contain p-4 bg-gray-800 md:p-8 rounded-3xl ">
                                 @if ($project->photo)
                                     <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
                                         class="w-full rounded-xl" />
@@ -205,9 +198,9 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
 
             <div class="bg-gray-800">
                 <section class="max-w-2xl px-4 py-24 mx-auto" id="contact">
-                    <div class="flex flex-col sm:gap-6 gap-3 items-center justify-center pb-12">
+                    <div class="flex flex-col items-center justify-center gap-3 pb-12 sm:gap-6">
                         <h2
-                            class=" text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
+                            class="text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                             Let's talk</h2>
                         <div class="w-8 h-1 rounded bg-primary"></div>
                         <h3 class="max-w-4xl text-center">Feel free to Contact me by submitting the form below and
@@ -223,7 +216,8 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
 
             <x-footer />
         </div>
-        {{-- Photo by Felix Mittermeier: https://www.pexels.com/photo/blue-universe-956981/ --}}
+        <p class="pt-4 text-center text-gray-700">Background photo by Felix Mittermeier:
+            https://www.pexels.com/photo/blue-universe-956981/</p>
     </footer>
     <x-toast />
 
