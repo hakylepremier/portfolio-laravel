@@ -43,24 +43,45 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         <header
             class="flex flex-col h-screen bg-[url('{{ Vite::asset('resources/images/bgrnd.jpg') }}')] bg-cover dark:bg-gray-800"
             style="background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');background-blend-mode: multiply">
-            <div class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+            <div class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700 ">
 
-                <nav class="flex flex-row items-center justify-between max-w-6xl p-4 m-auto " x-data="{ open: false, toggle() { this.open = !this.open; } }">
+                <nav class="relative flex flex-row items-center justify-between max-w-6xl p-4 m-auto sm:static"
+                    x-data="{ open: false, toggle() { this.open = !this.open; } }">
                     {{-- <x-navigation /> --}}
                     <a href="{{ route('home') }}">
                         <img src="{{ Vite::asset('resources/images/LOGO.svg') }}" alt="My logo" class="w-8 h-8">
                     </a>
-                    {{-- <div @click="toggle"
-                        class="hover:bg-gray-900 rounded text-white hover:text-accent cursor-pointer px-2 max-[400px]:block hidden">
-                        <i class="fa-solid fa-bars text-inherit"></i>
-                    </div> --}}
-                    {{-- <div class="menu"></div> --}}
-                    <ul class="flex gap-4 shrink-1">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('projects.index') }}">Projects</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact </a></li>
-                    </ul>
+                    <div @click.outside="open = false">
+                        <div @click="toggle"
+                            class="block px-3 py-1 text-white rounded cursor-pointer hover:bg-gray-900 hover:text-accent sm:hidden">
+                            <i class="fa-solid fa-bars text-inherit"></i>
+                        </div>
+
+                        <ul class="fixed top-0 z-10 flex flex-col w-56 h-screen gap-0 pt-2 transition-all bg-gray-800 border-l divide-y divide-gray-700 sm:divide-y-0 sm:gap-4 shrink-1 sm:static sm:h-auto sm:flex-row sm:w-auto sm:pt-0 shrink basis-72 sm:border-l-0 border-l-gray-900 sm:z-auto"
+                            x-bind:class="!open ? '-right-56' : 'right-0'" x-cloak>
+                            <li class="flex justify-end px-4 sm:hidden">
+                                <div @click="toggle"
+                                    class="p-2 px-4 text-white rounded cursor-pointer hover:bg-gray-900 hover:text-accent ">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </div>
+                            </li>
+                            <li @click="open = false"><a
+                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0"
+                                    href="{{ route('home') }}">Home</a>
+                            </li>
+                            <li @click="open = false"><a
+                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0"
+                                    href="{{ route('projects.index') }}">Projects</a>
+                            </li>
+                            <li @click="open = false"><a
+                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0 grow"
+                                    href="#about">About</a></li>
+                            <li @click="open = false"><a
+                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0 grow"
+                                    href="#contact">Contact </a>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </div>
             <section class="flex items-center justify-center flex-1">
@@ -138,14 +159,16 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             <div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">HTML & CSS</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">JavaScript</div>
-                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Tailwind CSS</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Tailwind CSS
+                                </div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">React JS</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Sass</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Pug JS</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Laravel</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Inertia JS</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Livewire</div>
-                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">React Native</div>
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">React Native
+                                </div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Expo Router</div>
                             </div>
                         </article>
@@ -203,7 +226,8 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                             class="text-3xl font-bold text-center uppercase after:w-7 after:h-2 after:bg-slate-300 after:contents">
                             Let's talk</h2>
                         <div class="w-8 h-1 rounded bg-primary"></div>
-                        <h3 class="max-w-4xl text-center">Feel free to Contact me by submitting the form below and
+                        <h3 class="max-w-4xl text-center">Feel free to Contact me by submitting the form below
+                            and
                             I will get back to you as soon as possible</h3>
                     </div>
                     <livewire:contact-form />
