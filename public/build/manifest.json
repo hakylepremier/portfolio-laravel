@@ -1,6 +1,14 @@
 {
+  "node_modules/highlight.js/styles/default.min.css": {
+    "file": "assets/default-yxXznUk0.css",
+    "src": "node_modules/highlight.js/styles/default.min.css"
+  },
+  "node_modules/highlight.js/styles/night-owl.min.css": {
+    "file": "assets/night-owl-h2ZOAOwB.css",
+    "src": "node_modules/highlight.js/styles/night-owl.min.css"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-KOciaGgQ.css",
+    "file": "assets/app-iNj0-IUl.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -65,7 +73,7 @@
     "src": "resources/images/room.jpeg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-ecWDpuvf.js",
+    "file": "assets/app-IwMDKGuj.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
