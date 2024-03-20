@@ -37,28 +37,28 @@ mount(function () {
 <div>
     <header class="m-auto max-w-7xl md:px-8 px-4">
         <x-navigation />
-        <section class="relative py-8 border-gray-700 border-y-2">
+        <section class="relative py-8 border-gray-200 dark:border-gray-700 border-y-2">
             <div class="flex justify-between md:gap-0 gap-2">
                 <article>
                     <h1 class="text-3xl font-bold">
                         The projects I've worked on
                     </h1>
-                    <p class="max-w-lg pt-4 lg:pb-8 pb-6 text-gray-400">
+                    <p class="max-w-lg pt-4 lg:pb-8 pb-6 dark:text-gray-400 text-gray-500">
                         This is where you'll find all the projects I'm working
                         on. I have split them up into groups to make it easy to
                         navigate.
                     </p>
                 </article>
-                <article class="flex items-start md:gap-4 gap-2 md:flex-row flex-col">
-                    <div class="tooltip" data-tip="Github Profile">
+                <article class="flex items-start md:gap-4 gap-2 md:flex-row flex-col bg-transparent" data-theme="mytheme">
+                    <div class="tooltip tooltip-accent" data-tip="Github Profile">
                         <a href="https://github.com/hakylepremier" target="_blank" rel="noopener noreferrer"><i
                                 class="text-[32px] hover:text-[36px] fa-brands fa-github transition-all"></i></a>
                     </div>
-                    <div class="tooltip" data-tip="Frontend Mentor Profile">
+                    <div class="tooltip tooltip-accent" data-tip="Frontend Mentor Profile">
                         <a href="https://www.frontendmentor.io/profile/hakylepremier" target="_blank"
                             rel="noopener noreferrer"><img src="{{ Vite::asset('resources/images/fm-logo.jpeg') }}"
                                 alt="frontend mentor logo"
-                                class="w-8 h-8 transition-all rounded-full hover:scale-110" /></a>
+                                class="w-8 h-8 transition-all rounded-full hover:scale-110 border border-gray-300 dark:border-none" /></a>
                     </div>
                 </article>
             </div>
@@ -79,14 +79,14 @@ mount(function () {
                 </div> --}}
             </div>
             <p
-                class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-600 font-bold bg-[#1d232a]">
+                class="absolute bottom-0 left-1/2 translate-y-1/2 -translate-x-1/2 px-4 text-xl text-gray-300 dark:text-gray-600 font-bold bg-white dark:bg-[#1d232a]">
                 Projects
             </p>
         </section>
     </header>
     <main class="md:pt-8 p-8 md:px-8 px-4 pt-0 m-auto max-w-7xl">
         <section
-            class="md:grid md:grid-cols-2 md:divide-y-0 divide-y divide-gray-600 gap-8 md:pt-8 md:pb-20 border-b-2 border-gray-700">
+            class="md:grid md:grid-cols-2 md:divide-y-0 divide-y divide-gray-600 gap-8 md:pt-8 md:pb-20 border-b-2 border-gray-200 dark:border-gray-700">
             @forelse ($this->projects as $project)
                 <article class="relative grow md:py-0 py-8">
                     <div class="flex justify-between gap-2 pb-4">
@@ -100,7 +100,7 @@ mount(function () {
                                 <div class="flex flex-wrap gap-2 items-end justify-end">
                                     @forelse ($project->types as $type)
                                         <p href=""
-                                            class="px-2 py-1 transition-colors bg-red-800 rounded-badge  lg:text-base text-sm">
+                                            class="px-2 py-1 transition-colors dark:bg-red-800 bg-red-500 rounded-badge text-white lg:text-base text-sm">
                                             {{ $type->title }}</p>
                                     @empty
                                         <p class="text-sm font-bold text-gray-600">No type added</p>
@@ -113,7 +113,7 @@ mount(function () {
                         <figure class="relative rounded">
                             @if ($project->photo)
                                 <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
-                                    class="w-full rounded-xl aspect-[8/5] object-cover" />
+                                    class="w-full rounded-xl aspect-[8/5] object-cover border border-gray-300 dark:border-none" />
                                 {{-- <p>{{ $project->photo }}</p> --}}
                             @else
                                 {{-- <div class="relative">
@@ -129,7 +129,7 @@ mount(function () {
                             <!-- <div class="h-full bg-gray-600 w-xl">375×667</div> -->
                             @if ($loop->odd)
                                 <div
-                                    class="md:visible invisible h-3/4 w-[1px] rounded bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
+                                    class="md:visible invisible h-3/4 w-[1px] rounded bg-gray-300 dark:bg-gray-600 absolute top-1/2 -right-4  -translate-y-1/2 translate-x-1/2 ">
                                 </div>
                             @endif
                         </figure>
@@ -138,7 +138,7 @@ mount(function () {
                         <p class="pt-4 lg:text-base text-sm">{{ $project->summary }}</p>
                     </a>
                     <div
-                        class="md:visible invisible h-[1px] w-3/4 rounded bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
+                        class="md:visible invisible h-[1px] w-3/4 rounded bg-gray-300 dark:bg-gray-600 absolute -bottom-4 left-1/2  -translate-x-1/2 translate-y-1/2">
                     </div>
                 </article>
             @empty

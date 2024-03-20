@@ -44,21 +44,19 @@ export default {
     },
 
     theme: {
-        extend: {
-            colors: {
-                testing: "#1d232a",
-                // 600: "#3a4855",
-                // tint: "#30353c",
-                // 900: "#1d232a",
-                // dark: "#0e7490",
-            },
-        },
-        hljs: {
-            theme: "night-owl",
-        },
+        // hljs: {
+        //     // theme: "night-owl",
+        //     themes: {
+        //         dark: 'night-owl',
+        //         light: 'github',
+        //     },
+        // },
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+            },
+            backgroundImage: {
+                ttuPattern: "url('resources/images/bgrnd.jpg')",
             },
         },
     },

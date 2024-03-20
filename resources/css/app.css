@@ -5,3 +5,8 @@
 [x-cloak] {
     display: none;
 }
+
+/* Assume light mode by default
+@import "cdn.com/atom-one-light.min.css" screen;
+/* Supersede dark mode when applicable
+@import "cdn.com/atom-one-dark.min.css" screen and (prefers-color-scheme: dark); */

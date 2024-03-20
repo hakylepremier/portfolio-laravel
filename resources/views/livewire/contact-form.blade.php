@@ -29,7 +29,7 @@ $save = function () {
 
 ?>
 
-<div class="bg-gray-900 card" data-theme="mytheme">
+<div class="dark:bg-gray-900 bg-gray-100 card" data-theme="mytheme">
     <x-form wire:submit="save" class="card-body">
         <x-input label="Name" wire:model="name" placeholder="Enter your name" icon="o-user"
             class="dark:border-accent dark:bg-gray-800" clearable />

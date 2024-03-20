@@ -12,13 +12,13 @@ name('projects.show');
 <x-guest-layout>
     <header class="max-w-5xl m-auto lg:px-4 md:px-8 px-4">
         <x-navigation />
-        <section class="relative py-8 border-gray-700 border-y-2">
+        <section class="relative py-8 border-gray-200 dark:border-gray-700  border-y-2">
             {{-- <div class="flex justify-between"> --}}
             <article class="flex flex-col gap-4">
                 <h1 class="text-3xl font-bold">
                     {{ $project->title }}
                 </h1>
-                <p class="text-gray-400">
+                <p class="text-gray-600 dark:text-gray-400">
                     @if ($project->description)
                         {{ $project->description }}
                     @else
@@ -27,7 +27,7 @@ name('projects.show');
                 </p>
                 <div>
                     <h3 class="text-xl font-bold">Category</h3>
-                    <p class="text-gray-400">{{ $project->category->title }}</p>
+                    <p class="text-gray-600 dark:text-gray-400">{{ $project->category->title }}</p>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold">Links</h3>
@@ -50,7 +50,8 @@ name('projects.show');
                     <h3 class="text-xl font-bold">Stack</h3>
                     <div class="flex flex-wrap gap-2 pt-2 basis-full">
                         @forelse ($project->stacks as $stack)
-                            <p href="" class="px-2 py-1 text-xs transition-colors bg-red-500 rounded-3xl">
+                            <p href=""
+                                class="px-2 py-1 text-xs transition-colors bg-red-500 text-white rounded-3xl">
                                 {{ $stack->title }}</p>
 
                         @empty
@@ -64,17 +65,18 @@ name('projects.show');
         </section>
     </header>
     <main class="max-w-5xl m-auto lg:px-4 md:px-8 px-4">
-        <div class="border-b-2 sm:py-8 py-4 border-gray-700">
+        <div class="border-b-2 sm:py-8 py-4 border-gray-200 dark:border-gray-700">
 
             <figure class="relative rounded">
                 @if ($project->photo)
-                    <img src="{{ asset('storage/' . $project->photo[0]) }}" alt="" class="w-full rounded-xl" />
+                    <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
+                        class="w-full rounded-xl border border-gray-300 dark:border-no" />
                 @else
                     <x-not-found-image />
                 @endif
             </figure>
             @if ($project->content)
-                <div class="pt-8 prose-headings:text-white text-gray-100 prose-li:ml-4 transition-all prose-ol:list-decimal prose-ul:list-disc prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-headings:text-xl  prose-headings:font-bold prose-headings:pt-4 prose-headings:pb-2 prose-p:py-2 prose-a:border-b-2 hover:prose-a:text-white hover:prose-a:font-bold hover:prose-a:border-accent prose-a:border-primary bg-[#1d232a] prose-pre:pt-2"
+                <div class="pt-8 dark:prose-headings:text-white prose-headings:text-gray-600 dark:text-white prose-li:ml-4 transition-all prose-ol:list-decimal prose-ul:list-disc prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-headings:text-xl  prose-headings:font-bold prose-headings:pt-4 prose-headings:pb-2 prose-p:py-2 prose-a:border-b-2  hover:dark:prose-a:text-white hover:prose-a:font-bold hover:prose-a:border-accent prose-a:border-primary bg-transparent prose-pre:pt-2 prose-code:hljs-dark"
                     data-theme="mytheme">
                     {!! Str::markdown($project->content) !!}
                 </div>
@@ -94,7 +96,7 @@ name('projects.show');
         </div>
         <livewire:contact-form />
     </section>
-    <footer class="py-12 bg-gray-950">
+    <footer class="py-12 bg-gray-300 dark:bg-gray-950">
         <div class="max-w-5xl m-auto md:px-8">
 
             <x-footer />

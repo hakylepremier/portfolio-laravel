@@ -36,14 +36,45 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
 
     <!-- Styles -->
     @livewireStyles
+    <style>
+        .mybg {
+            background-image: radial-gradient(#0D6A87 0.5px, transparent 0.5px), radial-gradient(#0D6A87 0.5px, #fff 0.5px);
+            background-size: 30px 30px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mybg {
+                background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');
+                /* background-color: rgb(17 24 39); */
+                background-size: auto auto;
+                background-blend-mode: multiply;
+            }
+        }
+
+        /* background-color: #e5e5f7;
+opacity: 0.8;
+background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 10px 10px; */
+
+        /* background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 20px 20px;
+background-position: 0 0,10px 10px; */
+
+        /* background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 20px 20px;
+background-position: 0 0,10px 10px; */
+    </style>
 </head>
 
-<body class="font-sans antialiased bg-gray-100 dark:bg-gray-800" data-theme="mytheme">
+<body class="font-sans antialiased text-gray-600 dark:text-white bg-gray-100 dark:bg-gray-800" data-theme="mytheme">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ">
-        <header
-            class="flex flex-col h-screen bg-[url('{{ Vite::asset('resources/images/bgrnd.jpg') }}')] bg-cover dark:bg-gray-800"
-            style="background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');background-blend-mode: multiply">
-            <div class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700 ">
+        {{-- bg-[radial-gradient(169.40%_89.55%_at_94.76%_6.29%,rgba(0,0,0,0.40)_0%,rgba(255,255,255,0.00)_100%)] --}}
+        <header class="flex flex-col h-screen bg-ttuPattern dark:bg-blend-multiply dark:bg-gray-800 bg-cover mybg">
+            <div class="bg-gray-200 border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700 ">
 
                 <nav class="relative flex flex-row items-center justify-between max-w-6xl p-4 m-auto sm:static"
                     x-data="{ open: false, toggle() { this.open = !this.open; } }">
@@ -53,31 +84,31 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                     </a>
                     <div @click.outside="open = false">
                         <div @click="toggle"
-                            class="block px-3 py-1 text-white rounded cursor-pointer hover:bg-gray-900 hover:text-accent sm:hidden">
+                            class="block px-3 py-1 dark:text-white text-gray-400 rounded cursor-pointer hover:dark:bg-gray-900 hover:dark:text-accent sm:hidden">
                             <i class="fa-solid fa-bars text-inherit"></i>
                         </div>
 
-                        <ul class="fixed top-0 z-10 flex flex-col w-56 h-screen gap-0 pt-2 transition-all bg-gray-800 border-l divide-y divide-gray-700 sm:divide-y-0 sm:gap-4 shrink-1 sm:static sm:h-auto sm:flex-row sm:w-auto sm:pt-0 shrink basis-72 sm:border-l-0 border-l-gray-900 sm:z-auto"
+                        <ul class="fixed top-0 z-10 flex flex-col w-56 h-screen gap-0 pt-2 transition-all bg-gray-200 dark:bg-gray-800 border-l divide-y divide-gray-300 dark:divide-gray-700 sm:divide-y-0 sm:gap-4 shrink-1 sm:static sm:h-auto sm:flex-row sm:w-auto sm:pt-0 shrink basis-72 sm:border-l-0 dark:border-l-gray-900 border-l-gray-300 sm:z-auto"
                             x-bind:class="!open ? '-right-56' : 'right-0'" x-cloak>
                             <li class="flex justify-end px-4 sm:hidden">
                                 <div @click="toggle"
-                                    class="p-2 px-4 text-white rounded cursor-pointer hover:bg-gray-900 hover:text-accent ">
+                                    class="p-2 px-4 dark:text-white text-gray-400 rounded cursor-pointer hover:dark:bg-gray-900 hover:dark:text-accent ">
                                     <i class="fa-solid fa-xmark"></i>
                                 </div>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0"
                                     href="{{ route('home') }}">Home</a>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0"
                                     href="{{ route('projects.index') }}">Projects</a>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0 grow"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0 grow"
                                     href="#about">About</a></li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:text-gray-400 hover:sm:bg-inherit hover:bg-gray-900 sm:p-0 grow"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0 grow"
                                     href="#contact">Contact </a>
                             </li>
                         </ul>
@@ -87,19 +118,20 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
             <section class="flex items-center justify-center flex-1">
                 <div class="relative w-full">
                     <div class="flex flex-col items-center justify-center max-w-3xl gap-8 pb-12 mx-auto ">
-                        <h1 class="px-2 text-3xl font-bold text-center uppercase md:text-5xl sm:text-4xl">Hello, I'm
+                        <h1 class="px-2 text-3xl font-bold text-center uppercase md:text-5xl sm:text-4xl">
+                            Hello, I'm
                             Humphrey Yeboah
                         </h1>
-                        <h2 class="px-8 text-center">I'm a full stack web and mobile app developer, a robotics
+                        <h2 class="px-8 text-center">I'm a full stack web and mobile app developer, a
+                            robotics
                             enthusiast and a livelong learner. Let me help put your business online.</h2>
                         <a href="#contact" class="mx-auto text-center text-white btn btn-primary">Let's talk</a>
                     </div>
                     <article
-                        class="absolute top-0 left-0 max-[900px]:hidden flex flex-col gap-1 p-1 bg-gray-800 rounded">
+                        class="absolute top-0 left-0 max-[900px]:hidden flex flex-col gap-1 p-1 bg-gray-300 dark:bg-gray-800 rounded">
                         <a href="https://www.linkedin.com/in/humphrey-yeboah-9850881b3/"
-                            class="p-3 text-white transition-colors rounded hover:bg-accent hover:text-gray-800"
-                            target="_blank" rel="noopener noreferrer"><i
-                                class="text-lg text-inherit fa-brands fa-linkedin"></i></a>
+                            class="p-3 transition-colors rounded hover:bg-accent hover:text-gray-800" target="_blank"
+                            rel="noopener noreferrer"><i class="text-lg text-inherit fa-brands fa-linkedin"></i></a>
                         <a href="https://www.twitter.com/hakylepremier"
                             class="p-3 transition-colors rounded hover:bg-accent hover:text-gray-800" target="_blank"
                             rel="noopener noreferrer"><i class="text-lg text-inherit fa-brands fa-x-twitter"></i></a>
@@ -116,7 +148,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
 
         <!-- Page Content -->
         <main>
-            <div class="bg-gray-800">
+            <div class="dark:bg-gray-800 bg-gray-200">
                 <section class="max-w-6xl px-8 py-20 mx-auto sm:px-16 lg:py-24" id="about">
                     <div class="flex flex-col items-center justify-center gap-3 pb-16 sm:gap-6 lg:pb-20">
                         <h2
@@ -156,8 +188,9 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                         </article>
                         <article>
                             <h4 class="pb-6 text-xl font-bold sm:pb-8 dark:text-white ">Skills</h4>
-                            <div>
-                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">HTML & CSS</div>
+                            <div class="text-white">
+                                <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">
+                                    HTML & CSS</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">JavaScript</div>
                                 <div class="inline-flex p-2 px-4 mb-2 text-sm rounded-md bg-neutral ">Tailwind CSS
                                 </div>
@@ -186,7 +219,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                 <div class="flex flex-col items-center justify-center gap-12 sm:gap-20">
                     @forelse ($projects as $project)
                         <article>
-                            <div class="object-contain p-4 bg-gray-800 md:p-8 rounded-3xl ">
+                            <div class="object-contain p-4 bg-gray-300 dark:bg-gray-800 md:p-8 rounded-3xl ">
                                 @if ($project->photo)
                                     <img src="{{ asset('storage/' . $project->photo[0]) }}" alt=""
                                         class="w-full rounded-xl" />
@@ -219,7 +252,7 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
                 </div>
             </section>
 
-            <div class="bg-gray-800">
+            <div class="dark:bg-gray-800 bg-gray-200">
                 <section class="max-w-2xl px-4 py-24 mx-auto" id="contact">
                     <div class="flex flex-col items-center justify-center gap-3 pb-12 sm:gap-6">
                         <h2
@@ -235,12 +268,13 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
             </div>
         </main>
     </div>
-    <footer class="py-12 bg-gray-950">
+    <footer class="py-12 bg-gray-300 dark:bg-gray-950">
         <div class="max-w-4xl m-auto md:px-8">
 
             <x-footer />
         </div>
-        <p class="pt-4 text-center text-gray-700">Background photo by Felix Mittermeier:
+        <p class="pt-4 text-center text-gray-700 dark:block hidden dark:text-gray-300">Background photo by Felix
+            Mittermeier:
             https://www.pexels.com/photo/blue-universe-956981/</p>
     </footer>
     <x-toast />

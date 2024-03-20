@@ -15,7 +15,7 @@ name('projects.index');
 
 <x-guest-layout>
     <livewire:projects.index />
-    <footer class="py-12 bg-gray-950">
+    <footer class="py-12 bg-gray-300 dark:bg-gray-950">
         <div class="max-w-5xl m-auto md:px-8">
 
             <x-footer />

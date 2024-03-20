@@ -20,6 +20,11 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+
+    {{-- <link href="/styles/base16/solarized-dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet">
+    <link href="/styles/base16/solarized-light.css"
+        media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" rel="stylesheet"> --}}
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css"> --}}
@@ -33,12 +38,12 @@
 </head>
 
 <body class="md:overflow-x-auto overflow-x-hidden">
-    <div class="font-sans antialiased text-gray-900 dark:text-gray-100">
+    <div class="font-sans antialiased text-gray-600 dark:text-gray-100">
         {{ $slot }}
     </div>
 
     <!-- and it's easy to individually load additional languages -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script> --}}
 
     <script>
         hljs.highlightAll();
