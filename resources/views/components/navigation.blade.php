@@ -17,18 +17,18 @@
                 </div>
             </li>
             <li @click="open = false"><a
-                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0"
+                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:sm:dark:bg-transparent hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0"
                     href="{{ route('home') }}">Home</a>
             </li>
             <li @click="open = false"><a
-                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0"
+                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:sm:dark:bg-transparent hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0"
                     href="{{ route('projects.index') }}">Projects</a>
             </li>
             <li @click="open = false"><a
-                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0 grow"
+                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:sm:dark:bg-transparent hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0 grow"
                     href="{{ route('home') }}#about">About</a></li>
             <li @click="open = false"><a
-                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0 grow"
+                    class="block p-4 sm:hover:dark:text-white sm:hover:text-primary transition-colors hover:sm:bg-inherit hover:sm:dark:bg-transparent hover:dark:bg-[#15191e] hover:bg-gray-100 sm:p-0 grow"
                     href="#contact">Contact </a>
             </li>
         </ul>

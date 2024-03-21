@@ -63,9 +63,9 @@ mount(function () {
                 </article>
             </div>
             <div class="flex lg:items-center md:items-start lg:flex-row flex-col gap-6 lg:justify-between">
-                <div class="px-4 py-2 bg-red-700 rounded-3xl">
+                <div class="px-4 py-2 bg-red-500 dark:bg-red-700 rounded-3xl">
                     <input type="text" wire:model.live="search"
-                        class="p-0 bg-transparent border-none placeholder:text-gray-200 active:bg-transparent"
+                        class="p-0 bg-transparent border-none placeholder:dark:text-gray-200 placeholder:text-white placeholder:font-normal font-bold text-white active:bg-transparent"
                         placeholder="Search" />
                 </div>
                 {{-- <div class="flex lg:gap-8 gap-2 items-baseline">

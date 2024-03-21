@@ -45,34 +45,15 @@ $projects = Project::where('published', true)->orderBy('order', 'desc')->limit(2
         @media (prefers-color-scheme: dark) {
             .mybg {
                 background-image: url('{{ Vite::asset('resources/images/bgrnd.jpg') }}');
-                /* background-color: rgb(17 24 39); */
                 background-size: auto auto;
                 background-blend-mode: multiply;
             }
         }
-
-        /* background-color: #e5e5f7;
-opacity: 0.8;
-background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-background-size: 10px 10px; */
-
-        /* background-color: #e5e5f7;
-opacity: 0.8;
-background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-background-size: 20px 20px;
-background-position: 0 0,10px 10px; */
-
-        /* background-color: #e5e5f7;
-opacity: 0.8;
-background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-background-size: 20px 20px;
-background-position: 0 0,10px 10px; */
     </style>
 </head>
 
 <body class="font-sans antialiased text-gray-600 dark:text-white bg-gray-100 dark:bg-gray-800" data-theme="mytheme">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 dark:text-white ">
-        {{-- bg-[radial-gradient(169.40%_89.55%_at_94.76%_6.29%,rgba(0,0,0,0.40)_0%,rgba(255,255,255,0.00)_100%)] --}}
         <header class="flex flex-col h-screen bg-ttuPattern dark:bg-blend-multiply dark:bg-gray-800 bg-cover mybg">
             <div class="bg-gray-200 border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700 ">
 
@@ -97,18 +78,18 @@ background-position: 0 0,10px 10px; */
                                 </div>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:dark:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 hover:sm:bg-transparent sm:p-0"
                                     href="{{ route('home') }}">Home</a>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:dark:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 hover:sm:bg-transparent sm:p-0"
                                     href="{{ route('projects.index') }}">Projects</a>
                             </li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0 grow"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:dark:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 hover:sm:bg-transparent sm:p-0 grow"
                                     href="#about">About</a></li>
                             <li @click="open = false"><a
-                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 sm:p-0 grow"
+                                    class="block p-4 sm:hover:dark:text-gray-400 sm:hover:text-red-500 hover:sm:dark:bg-inherit hover:dark:bg-gray-900 hover:bg-gray-300 hover:sm:bg-transparent sm:p-0 grow"
                                     href="#contact">Contact </a>
                             </li>
                         </ul>
